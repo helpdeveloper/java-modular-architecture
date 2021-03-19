@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+
+  app:
+    image: helpdev/app-spring-jvm
+    ports:
+      - 8080:8080
+    environment:
+      MYSQL_URL: jdbc:mysql://db:3306/sample
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+

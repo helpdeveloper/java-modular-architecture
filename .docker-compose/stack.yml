@@ -1,0 +1,84 @@
+version: '3.8'
+
+volumes:
+  prometheus_data: {}
+  grafana_data: {}
+
+services:
+  sampledb:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pass123
+      MYSQL_PASSWORD: pass123
+      MYSQL_DATABASE: sample
+      MYSQL_USER: user
+    ports:
+      - 3306:3306
+
+  flyway:
+    image: flyway/flyway
+    command: -url=jdbc:mysql://sampledb -schemas=sample -user=root -password=pass123 -connectRetries=60 migrate
+    volumes:
+      - ../resources/flyway/db/migration:/flyway/sql
+    depends_on:
+      - sampledb
+
+  adminer:
+    image: adminer:4.7.9
+    restart: always
+    ports:
+      - 8111:8080
+  swagger-ui:
+    image: mrin9/rapidoc
+    environment:
+      SPEC_URL: http://localhost:5000/v1/openapi
+      RAPIDOC_OPTIONS: "theme='dark' allow-authentication='true' "
+    ports:
+      - 8112:80
+  nginx:
+    image: nginx
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    environment:
+      NGINX_PORT: 5000
+      NGINX_HOST: 127.0.0.1
+    network_mode: host
+    expose:
+      - 5000
+  prometheus:
+    image: prom/prometheus:v2.25.0
+    container_name: prometheus
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    restart: unless-stopped
+    network_mode: host
+    labels:
+      org.label-schema.group: "monitoring"
+    expose:
+      - 9090
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+    environment:
+      - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    restart: unless-stopped
+    network_mode: host
+    labels:
+      org.label-schema.group: "monitoring"
+    expose:
+      - 3000
