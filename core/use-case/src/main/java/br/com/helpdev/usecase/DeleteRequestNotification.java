@@ -24,7 +24,7 @@ public class DeleteRequestNotification {
       repository.delete(id);
     } else {
       throw new MessageNotFoundException(
-          "Mensagem com o id: " + id + " não existe ou já foi removida, confira se o identificador está correto.");
+          "Message id: " + id + " dont exists");
     }
   }
 
