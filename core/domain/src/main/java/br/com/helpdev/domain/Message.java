@@ -31,7 +31,7 @@ public class Message {
                  final CommunicationChannel channel, final Collection<Chat> chats) {
     Objects.requireNonNull(body, "Body cant be null");
     if (recipient == null) {
-      throw new InvalidRecipientException("Mensagem precisa de um destinatário, favor informar nome, telefone e e-mail!");
+      throw new InvalidRecipientException("The message needs a recipient");
     }
     this.id = id;
     this.scheduleDate = scheduleDate;
