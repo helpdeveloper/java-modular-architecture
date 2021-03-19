@@ -11,6 +11,7 @@ import br.com.helpdev.domain.CommunicationChannel;
 import br.com.helpdev.domain.Message;
 import br.com.helpdev.domain.Recipient;
 import br.com.helpdev.domain.vo.MessageBody;
+import br.com.helpdev.domain.vo.MessageId;
 import br.com.helpdev.domain.vo.Phone;
 import java.util.Collection;
 import java.util.Collections;
@@ -24,7 +25,7 @@ public class ControllerMessageMapper {
 
   public MessageResponseDto toDto(final Message message) {
     return MessageResponseDto.builder()
-        .id(message.getId().value())
+        .id(message.getId().map(MessageId::value).orElse(null))
         .scheduleDate(message.getScheduleDate())
         .body(message.getBody().value())
         .channel(parse(message.getChannel()))
@@ -33,7 +34,7 @@ public class ControllerMessageMapper {
         .build();
   }
 
-  public Message toEntity(final MessageCreateDto message) {
+  public Message toDomain(final MessageCreateDto message) {
     return Message.builder()
         .body(MessageBody.from(message.getBody()))
         .scheduleDate(message.getScheduleDate())
@@ -43,10 +44,7 @@ public class ControllerMessageMapper {
   }
 
   public Collection<ChatResponseDto> parse(final Collection<Chat> chats) {
-    if (chats == null) {
-      return Collections.emptyList();
-    }
-    return chats.stream()
+    return chats == null ? Collections.emptyList() : chats.stream()
         .map(c -> ChatResponseDto.builder()
             .date(c.getDate())
             .status(StatusResponseDto.findByStatus(c.getStatus()))
@@ -54,36 +52,24 @@ public class ControllerMessageMapper {
         .collect(Collectors.toList());
   }
 
-  public CommunicationChannel parse(final CommunicationChannelDto dto) {
-    if (dto == null) {
-      return null;
-    }
-    return CommunicationChannel.valueOf(dto.name());
+  private CommunicationChannel parse(final CommunicationChannelDto dto) {
+    return dto == null ? null : CommunicationChannel.valueOf(dto.name());
   }
 
-  public CommunicationChannelDto parse(final CommunicationChannel value) {
-    if (value == null) {
-      return null;
-    }
-    return CommunicationChannelDto.valueOf(value.name());
+  private CommunicationChannelDto parse(final CommunicationChannel value) {
+    return value == null ? null : CommunicationChannelDto.valueOf(value.name());
   }
 
-  public Recipient parse(final RecipientDto recipient) {
-    if (recipient == null) {
-      return null;
-    }
-    return Recipient.builder()
+  private Recipient parse(final RecipientDto recipient) {
+    return recipient == null ? null : Recipient.builder()
         .email(recipient.getEmail())
         .name(recipient.getName())
         .phone(Phone.from(recipient.getPhoneId(), recipient.getPhoneNumber()))
         .build();
   }
 
-  public RecipientDto parse(final Recipient recipient) {
-    if (recipient == null) {
-      return null;
-    }
-    return RecipientDto.builder()
+  private RecipientDto parse(final Recipient recipient) {
+    return recipient == null ? null : RecipientDto.builder()
         .email(recipient.getEmail())
         .name(recipient.getName())
         .phoneId(recipient.getPhone().getPhoneId().orElse(null))

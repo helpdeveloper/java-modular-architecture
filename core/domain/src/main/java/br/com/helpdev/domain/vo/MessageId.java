@@ -13,7 +13,7 @@ public class MessageId {
   @EqualsAndHashCode.Include
   private final Long id;
 
-  public MessageId(final Long id) {
+  MessageId(final Long id) {
     Objects.requireNonNull(id);
     if (id <= 0) {
       throw new IllegalArgumentException("Id should be greater than 0");

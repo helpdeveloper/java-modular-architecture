@@ -53,7 +53,7 @@ public class MessageController {
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
   public Response create(final MessageCreateDto messageDto) throws NotificationException {
-    var entity = mapper.toEntity(messageDto);
+    var entity = mapper.toDomain(messageDto);
     var message = pushRequestNotification.push(entity);
     return Response.status(Response.Status.CREATED)
         .entity(mapper.toDto(message))

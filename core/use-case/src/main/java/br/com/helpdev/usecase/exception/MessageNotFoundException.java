@@ -4,7 +4,7 @@ import br.com.helpdev.domain.exception.NotificationException;
 
 public class MessageNotFoundException extends NotificationException {
 
-  public MessageNotFoundException(String message) {
+  public MessageNotFoundException(final String message) {
     super(message);
   }
 }

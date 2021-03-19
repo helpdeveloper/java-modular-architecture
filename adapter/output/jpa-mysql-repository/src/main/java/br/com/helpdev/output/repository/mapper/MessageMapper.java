@@ -27,7 +27,7 @@ public class MessageMapper {
 
   public MessageEntity toEntity(final Message message) {
     return MessageEntity.builder()
-        .id(message.getId() == null ? null : message.getId().value())
+        .id(message.getId().map(MessageId::value).orElse(null))
         .body(message.getBody().value())
         .channel(CommunicationChannelEntity.valueOf(message.getChannel().name()))
         .chats(toChatEntity(message.getChats()))

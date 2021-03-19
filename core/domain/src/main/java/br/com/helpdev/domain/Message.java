@@ -6,6 +6,7 @@ import br.com.helpdev.domain.vo.MessageId;
 import java.time.ZonedDateTime;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Optional;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -26,7 +27,7 @@ public class Message {
   private final Collection<Chat> chats;
 
   @Builder
-  public Message(final MessageId id, final ZonedDateTime scheduleDate, final MessageBody body, final Recipient recipient,
+  Message(final MessageId id, final ZonedDateTime scheduleDate, final MessageBody body, final Recipient recipient,
                  final CommunicationChannel channel, final Collection<Chat> chats) {
     Objects.requireNonNull(body, "Body cant be null");
     if (recipient == null) {
@@ -38,6 +39,10 @@ public class Message {
     this.recipient = recipient;
     this.channel = channel;
     this.chats = chats;
+  }
+
+  public Optional<MessageId> getId() {
+    return Optional.ofNullable(id);
   }
 }
 
