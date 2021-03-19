@@ -14,7 +14,7 @@ public class MessageId {
   private final Long id;
 
   MessageId(final Long id) {
-    Objects.requireNonNull(id);
+    Objects.requireNonNull(id, "Id cant be null");
     if (id <= 0) {
       throw new IllegalArgumentException("Id should be greater than 0");
     }

@@ -12,7 +12,7 @@ public class MessageBody {
   private final String body;
 
   MessageBody(final String body) {
-    Objects.requireNonNull(body);
+    Objects.requireNonNull(body, "Body cant be null");
     if (body.isEmpty()) {
       throw new InvalidMessageException("Body cant be empty");
     }
