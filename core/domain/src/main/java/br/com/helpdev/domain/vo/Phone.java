@@ -19,7 +19,7 @@ public class Phone {
   private final String phoneNumber;
 
   Phone(final String phoneId, final String phoneNumber) {
-    Objects.requireNonNull(phoneNumber);
+    Objects.requireNonNull(phoneNumber, "Phone number cant be null");
     this.phoneId = phoneId;
     this.phoneNumber = phoneNumber;
   }
