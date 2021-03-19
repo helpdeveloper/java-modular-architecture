@@ -26,6 +26,9 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.parameters>true</maven.compiler.parameters>
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
+        <coverage.line>0</coverage.line>
+        <coverage.branch>0</coverage.branch>
+        <mutation.skip>true</mutation.skip>
     </properties>
 
     <dependencyManagement>

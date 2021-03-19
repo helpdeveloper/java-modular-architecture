@@ -21,8 +21,8 @@
     </modules>
 
     <properties>
-        <coverage.line>0</coverage.line>
-        <coverage.branch>0</coverage.branch>
+        <coverage.line>1</coverage.line>
+        <coverage.branch>1</coverage.branch>
         <mutation.threshold>100</mutation.threshold>
         <java.version>11</java.version>
         <maven.compiler.source>11</maven.compiler.source>
@@ -52,7 +52,7 @@
         <mutation.scan.code>br.com.helpdev.*</mutation.scan.code>
         <mutation.excluded.code></mutation.excluded.code>
         <mutation.scan.test>br.com.helpdev.*</mutation.scan.test>
-        <mutation.skip>true</mutation.skip>
+        <mutation.skip>false</mutation.skip>
         <pitest-maven.version>1.6.2</pitest-maven.version>
         <java-faker.version>1.0.2</java-faker.version>
         <jakarta.persistence-api.version>2.2.3</jakarta.persistence-api.version>

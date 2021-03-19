@@ -22,11 +22,12 @@ import javax.ws.rs.core.MediaType;
         contact = @Contact(url = "https://helpdev.com.br", name = "HelpDev", email = "contato@helpdev.com.br")
     )
 )
-public class OpenApi {
+public class OpenApiController {
 
   @GET
   @Operation(hidden = true)
   public InputStream openApi() {
-    return OpenApi.class.getResourceAsStream("openapi.json");
+    return OpenApiController.class.getResourceAsStream("openapi.json");
   }
+
 }

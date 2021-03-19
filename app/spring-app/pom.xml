@@ -18,6 +18,9 @@
         <mutation.skip>true</mutation.skip>
         <spring-boot.version>2.4.4</spring-boot.version>
         <jackson.version>2.8.5</jackson.version>
+        <coverage.line>0</coverage.line>
+        <coverage.branch>0</coverage.branch>
+        <mutation.skip>true</mutation.skip>
     </properties>
 
     <dependencyManagement>

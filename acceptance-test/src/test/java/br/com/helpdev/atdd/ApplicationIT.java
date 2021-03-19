@@ -90,7 +90,7 @@ public class ApplicationIT extends AbstractContainerBaseTest {
         .delete("/v1/message/{id}", "123123")
         .then()
         .statusCode(404)
-        .body("message", equalTo("Mensagem com o id: 123123 não existe ou já foi removida, confira se o identificador está correto."));
+        .body("message", equalTo("Message id: 123123 dont exists"));
   }
 
   @Test
