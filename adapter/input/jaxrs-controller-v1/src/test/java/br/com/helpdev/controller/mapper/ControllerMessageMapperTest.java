@@ -326,5 +326,5 @@ class ControllerMessageMapperTest {
             .build())
         .id(MessageId.from(1L));
   }
-  
+
 }

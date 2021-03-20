@@ -68,17 +68,25 @@ docker build  -t helpdev/app-quarkus-jvm .
 
 ## Iniciando serviço
 
+```bash
 docker-compose -f .docker-compose/stack.yml up
-
+```
+```bash
 docker-compose -f .docker-compose/quarkus-app.yml up
+```
 
 ## Consumindo API
+Para ter uma interface de fácil com o OpenAPI consumido usamos o [RapiDoc](https://mrin9.github.io/RapiDoc/).
 
-http://localhost:5000
+Basta acessar [Endereço local](http://localhost:5000) e já pode testar as APIs 
+
 
 ## Rodando teste de carga
+Para quem ainda não conhece o [k6](https://k6.io/) é uma ferramenta para testes de carga, basta [Instalar o K6](https://k6.io/docs/getting-started/installation) e executar o comando:
 
+```bash
 k6 run  k6/script.js
+```
 
 ## Monitorando aplicação
 
