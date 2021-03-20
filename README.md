@@ -166,7 +166,7 @@ Ao acessar o [Adminer](http://localhost:5000/adminer) é possível executar 'scr
 # Links
 
 - [Apresentação em slides - Jornada Colaborativa Summit 2021](https://docs.google.com/presentation/d/1rIwdL6hhTcmWSujE3tRd9VxKhE3RKwta0krmwRU08_Y/edit?usp=sharing)
-- [Artigo - Criando uma aplicação modular muito além do Clean Architecture (aguardando publicação)]()
+- [Artigo - Criando uma aplicação modular muito além do Clean Architecture](https://medium.com/luizalabs/criando-uma-aplica%C3%A7%C3%A3o-modular-muito-al%C3%A9m-do-clean-architecture-5dde3687c5d6)
 
 # Desenvolvedores
 
