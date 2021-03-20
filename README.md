@@ -37,6 +37,11 @@ Todo acesso a dados seja banco e/ou api's expostos pelas interfaces do Use Case 
 
 Facilidade na execução dos testes com uma melhor granularidade.
 
+<p align="center">
+    <img src="./images/tests.png" height="450">
+</p>
+
+
 ### Unitários
 - [JUnit5](https://junit.org/junit5/)
 - [Mockito](https://site.mockito.org)
