@@ -60,17 +60,23 @@ Teste do ponto de vista de quem irá consumir, sempre buscando o mais perto de p
 - docker
 - docker-compose
 
-## Gerando imagem docker
+## Build do projeto, já toda todos os teste unitários e os testes de aceitação
 
+```bash
 mvn clean install
-
+```
+## Gerando imagem docker com o Quarkus
+```bash
 docker build  -t helpdev/app-quarkus-jvm .
+```
 
 ## Iniciando serviço
 
+*O comando sobe toda infraestrutura necessária para a aplicação*
 ```bash
 docker-compose -f .docker-compose/stack.yml up
 ```
+*Agora podemos iniciar nossa aplicação*
 ```bash
 docker-compose -f .docker-compose/quarkus-app.yml up
 ```
@@ -79,7 +85,6 @@ docker-compose -f .docker-compose/quarkus-app.yml up
 Para ter uma interface de fácil com o OpenAPI consumido usamos o [RapiDoc](https://mrin9.github.io/RapiDoc/).
 
 Basta acessar [Endereço local](http://localhost:5000) e já pode testar as APIs 
-
 
 ## Rodando teste de carga
 Para quem ainda não conhece o [k6](https://k6.io/) é uma ferramenta para testes de carga, basta [Instalar o K6](https://k6.io/docs/getting-started/installation) e executar o comando:
@@ -93,9 +98,19 @@ k6 run  k6/script.js
 ### Observabilidade
 Saber como a aplicação está se comportando e métricas
 
-http://localhost:3000
+A combinação poderosa entre o [Grafana](https://grafana.com/) e o [Prometheus](https://prometheus.io/) permite gráficos e alertas configuraveis.
+Acesssando o [Grafana Local](http://localhost:3000) já basta navegar até o dashboard précadastro e ter uma amostrado dos dados da apliação e das ferramentas.
 - login: admin
 - senha: admin
+
+### Acessando o banco de dados
+
+Ao acessar o [Adminer](http://localhost:3000) é possivel executar scripts SQL além de adicionar e altarer dados dentro das tabelas.
+
+- host:
+- usuário:
+- senha:
+- base:
 
 # Desenvolvedores
 
@@ -110,3 +125,4 @@ http://localhost:3000
 - GitHub - https://github.com/gbzarelli
 - Medium - https://medium.com/@guilherme.zarelli
 - Email - gbzarelli@helpdev.com.br
+
