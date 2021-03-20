@@ -28,10 +28,10 @@ Determina o comportamento da funcionalidade exigida, no caso, o use case será o
 ## Adaptadores
 
 ### input
-Camada de apresentação do sistema, nela, por exemplo, iremos fornecer nossos end points.
+Camada de apresentação do sistema, nela, por exemplo, iremos fornecer nossos end-points.
 
 ### output
-Todo acesso a dados seja banco e/ou api's expostos pelas interfaces do Use Case devem ser implementadas nessa camada.
+Todo acesso a dados seja banco e/ou api's expostos pelas 'interfaces' do Use Case devem ser implementadas nessa camada.
 
 ## Testabilidade
 
@@ -70,6 +70,13 @@ Teste do ponto de vista de quem irá consumir, sempre buscando o mais perto de p
 
 # Executando o projeto
 
+O Projeto conta com uma stack configurada no docker-compose completa. 
+Fornecendo toda infraestrutura necessária para o desenvolvedor.
+
+<p align="center">
+    <img src="./images/stack.png" height="250">
+</p>
+
 ### Requerido
 
 - Java 11+
@@ -77,11 +84,12 @@ Teste do ponto de vista de quem irá consumir, sempre buscando o mais perto de p
 - docker
 - docker-compose
 
-## Build do projeto, já toda todos os teste unitários e os testes de aceitação
+## Build do projeto, já com todos os testes unitários e os testes de aceitação
 
 ```bash
 mvn clean install
 ```
+
 ## Gerando imagem docker com o Quarkus
 ```bash
 docker build  -t helpdev/app-quarkus-jvm .
@@ -93,13 +101,14 @@ docker build  -t helpdev/app-quarkus-jvm .
 ```bash
 docker-compose -f .docker-compose/stack.yml up
 ```
+
 *Agora podemos iniciar nossa aplicação*
 ```bash
 docker-compose -f .docker-compose/quarkus-app.yml up
 ```
 
 ## Consumindo API
-Para ter uma interface de fácil com o OpenAPI consumido usamos o [RapiDoc](https://mrin9.github.io/RapiDoc/).
+Para ter uma 'interface' de fácil com o OpenAPI consumido usamos o [RapiDoc](https://mrin9.github.io/RapiDoc/).
 
 Basta acessar [Endereço local](http://localhost:5000) e já pode testar as APIs 
 - http://localhost:5000
@@ -111,15 +120,15 @@ Para quem ainda não conhece o [k6](https://k6.io/) é uma ferramenta para teste
 k6 run  k6/script.js
 ```
 
-O tempo de execução do K6 e quantidade de "Execuções" é configuravel, basta alterar o arquivo [Script do K6](/k6/script.js)
+O tempo de execução do K6 e quantidade de 'execuções' é configurável, basta alterar o [Script do K6](/k6/script.js).
 
 ## Monitorando aplicação
 
 ### Observabilidade
 Saber como a aplicação está se comportando e métricas
 
-A combinação poderosa entre o [Grafana](https://grafana.com/) e o [Prometheus](https://prometheus.io/) permite gráficos e alertas configuraveis.
-Acesssando o [Grafana Local](http://localhost:3000) já basta navegar até o dashboard précadastro e ter uma amostrado dos dados da apliação e das ferramentas.
+A combinação poderosa entre o [Grafana](https://grafana.com/) e o [Prometheus](https://prometheus.io/) permite gráficos e alerta configuráveis.
+Acessando o [Grafana Local](http://localhost:3000) já basta navegar até o dashboard précadastro e ter uma amostrado dos dados da aplicação e das ferramentas.
 - http://localhost:3000
     - login: admin
     - senha: admin
@@ -129,7 +138,7 @@ Já o [Promehteus Local](http://localhost:9090) só acessar o link (sem login):
 
 ### Acessando o banco de dados
 
-Ao acessar o [Adminer](http://localhost:5000/adminer) é possivel executar scripts SQL além de adicionar e altarer dados dentro das tabelas.
+Ao acessar o [Adminer](http://localhost:5000/adminer) é possível executar 'scripts' SQL além de adicionar e alterar dados dentro das tabelas.
 - http://localhost:5000/adminer
     - host:
     - usuário:
