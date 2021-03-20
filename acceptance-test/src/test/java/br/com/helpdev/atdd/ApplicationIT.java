@@ -55,7 +55,7 @@ public class ApplicationIT extends AbstractContainerBaseTest {
         .then()
         .statusCode(404)
         .body("message",
-            equalTo("Mensagem com o id: 123123 não foi encontrada, confira se o identificador está correto e tente novamente."));
+            equalTo("Message with Id 123123 not found"));
   }
 
   @Test

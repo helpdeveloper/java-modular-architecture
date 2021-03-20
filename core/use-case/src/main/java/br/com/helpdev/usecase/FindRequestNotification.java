@@ -23,8 +23,7 @@ public class FindRequestNotification {
 
   public Message find(final MessageId id) throws NotificationException {
     return repository.find(id).orElseThrow(() ->
-        new MessageNotFoundException(
-            "Mensagem com o id: " + id + " não foi encontrada, confira se o identificador está correto e tente novamente.")
+        new MessageNotFoundException("Message with Id " + id + " not found")
     );
   }
 

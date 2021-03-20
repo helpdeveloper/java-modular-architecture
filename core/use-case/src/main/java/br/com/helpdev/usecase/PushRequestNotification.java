@@ -24,10 +24,15 @@ public class PushRequestNotification {
 
   public Message push(final Message message) throws NotificationException {
     return repository.create(message.toBuilder()
-        .chats(List.of(Chat.builder()
-            .date(ZonedDateTime.now())
-            .status(Status.WAITING)
-            .build())).build());
+        .chats(getSingleListWithCurrentTimesAndWaitingStatus())
+        .build());
+  }
+
+  private List<Chat> getSingleListWithCurrentTimesAndWaitingStatus() {
+    return List.of(Chat.builder()
+        .date(ZonedDateTime.now())
+        .status(Status.WAITING)
+        .build());
   }
 
 }
