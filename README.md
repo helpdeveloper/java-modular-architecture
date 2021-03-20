@@ -2,6 +2,7 @@
 ![Forks](https://img.shields.io/github/forks/helpdeveloper/java-modular-architecture.svg)
 ![Stars](https://img.shields.io/github/stars/helpdeveloper/java-modular-architecture.svg)
 ![Release Version](https://img.shields.io/github/release/helpdeveloper/java-modular-architecture.svg)
+![WorkFlow](https://github.com/helpdeveloper/java-modular-architecture/workflows/Java%20CI%20with%20Maven/badge.svg) 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d492d9f4f03941f1aadfb4094536ef76)](https://www.codacy.com/gh/helpdeveloper/java-modular-architecture/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=helpdeveloper/java-modular-architecture&amp;utm_campaign=Badge_Grade)
 [![Coverage Status](https://coveralls.io/repos/github/helpdeveloper/java-modular-architecture/badge.svg?branch=main)](https://coveralls.io/github/helpdeveloper/java-modular-architecture?branch=main)
 # Arquitetura modular
