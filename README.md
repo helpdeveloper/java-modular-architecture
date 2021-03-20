@@ -130,8 +130,8 @@ Saber como a aplicação está se comportando e métricas
 A combinação poderosa entre o [Grafana](https://grafana.com/) e o [Prometheus](https://prometheus.io/) permite gráficos e alerta configuráveis.
 Acessando o [Grafana Local](http://localhost:3000) já basta navegar até o dashboard précadastro e ter uma amostrado dos dados da aplicação e das ferramentas.
 - http://localhost:3000
-    - login: admin
-    - senha: admin
+    - login: *admin*
+    - senha: *admin*
     
 Já o [Promehteus Local](http://localhost:9090) só acessar o link (sem login):
 - http://localhost:9090
@@ -140,10 +140,10 @@ Já o [Promehteus Local](http://localhost:9090) só acessar o link (sem login):
 
 Ao acessar o [Adminer](http://localhost:5000/adminer) é possível executar 'scripts' SQL além de adicionar e alterar dados dentro das tabelas.
 - http://localhost:5000/adminer
-    - host:
-    - usuário:
-    - senha:
-    - base:
+    - servidor: *sampledb*
+    - usuário: *user*
+    - senha: *pass123*
+    - base: *sample*
 
 # Links
 
