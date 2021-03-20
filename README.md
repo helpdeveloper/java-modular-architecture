@@ -30,21 +30,21 @@ Todo acesso a dados seja banco e/ou api's expostos pelas interfaces do Use Case 
 Facilidade na execução dos testes com uma melhor granularidade.
 
 ### Unitários
-- JUnit5
-- Mockito
-- AssertJ
-- Mutação
-- Cobertura de código (linha e condições)
+- [JUnit5](https://junit.org/junit5/)
+- [Mockito](https://site.mockito.org)
+- [AssertJ](https://assertj.github.io/doc/)
+- [Mutação](https://pitest.org)
+- [Cobertura de código (linha e condições)](https://www.eclemma.org/jacoco/)
 
 ### Aceitação (acceptance-test)
 Teste do ponto de vista de quem irá consumir, sempre buscando o mais perto de produção.
 
 #### O que tem:
-- Docker
-- TestContainers
-- RestAssured
-- WireMock
-- Flyway
+- [Docker](https://www.docker.com)
+- [TestContainers](https://www.testcontainers.org)
+- [RestAssured](https://rest-assured.io)
+- [WireMock](http://wiremock.org)
+- [Flyway](https://flywaydb.org)
 
 #### O que não tem:
 - Framework (Spring ou quarkus)
