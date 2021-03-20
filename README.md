@@ -123,6 +123,11 @@ Ao acessar o [Adminer](http://localhost:5000/adminer) é possivel executar scrip
     - senha:
     - base:
 
+# Links
+
+- [Apresentação em slides - Jornada Colaborativa Summit 2021](https://docs.google.com/presentation/d/1rIwdL6hhTcmWSujE3tRd9VxKhE3RKwta0krmwRU08_Y/edit?usp=sharing)
+- [Artigo - Criando uma aplicação modular muito além do Clean Architecture (aguardando publicação)]()
+
 # Desenvolvedores
 
 **Alisson Medeiros**
