@@ -2,8 +2,10 @@ package br.com.helpdev.domain.vo;
 
 import java.util.Objects;
 import java.util.Optional;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+@EqualsAndHashCode
 public class Phone {
 
   public static Phone newNumber(final String phoneNumber) {

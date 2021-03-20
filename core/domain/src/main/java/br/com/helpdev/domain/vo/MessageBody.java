@@ -2,7 +2,9 @@ package br.com.helpdev.domain.vo;
 
 import br.com.helpdev.domain.exception.InvalidMessageException;
 import java.util.Objects;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode
 public class MessageBody {
 
   public static MessageBody from(final String body) {
