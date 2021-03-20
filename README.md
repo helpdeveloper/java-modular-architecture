@@ -1,5 +1,9 @@
+![Issues](https://img.shields.io/github/issues/helpdeveloper/java-modular-architecture.svg)
+![Forks](https://img.shields.io/github/forks/helpdeveloper/java-modular-architecture.svg)
+![Stars](https://img.shields.io/github/stars/helpdeveloper/java-modular-architecturei.svg)
+![Release Version](https://img.shields.io/github/release/helpdeveloper/java-modular-architecture.svg)
 # Arquitetura modular
-### Projeto em desenvolvimento...
+### Projeto em desenvolvimento
 
 <p align="center">
     <img src="./images/arch.png" height="350">
