@@ -48,7 +48,6 @@ class DeleteRequestNotificationTest {
     assertThatThrownBy(() -> deleteRequestNotification.delete(messageId))
         .hasMessage("Message id: " + messageId.value() + " dont exists");
 
-
     verify(repository, times(1))
         .exists(messageId);
   }
