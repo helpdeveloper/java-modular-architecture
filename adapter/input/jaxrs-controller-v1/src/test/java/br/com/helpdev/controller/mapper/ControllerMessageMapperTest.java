@@ -24,7 +24,7 @@ class ControllerMessageMapperTest {
   private final ControllerMessageMapper mapper = new ControllerMessageMapper();
 
   @Test
-  public void whenBodyHasEntityThenConvertToDto() {
+  void whenBodyHasEntityThenConvertToDto() {
     var message = fakeBuilder()
         .body(MessageBody.from("Test"))
         .build();
@@ -34,7 +34,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenHasBodyInCreateDtoThenConvertToEntity() {
+  void whenHasBodyInCreateDtoThenConvertToEntity() {
     var message = fakeDto()
         .body("Test")
         .build();
@@ -44,7 +44,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenDateHasEntityThenConvertToDto() {
+  void whenDateHasEntityThenConvertToDto() {
     var date = ZonedDateTime.now();
     var message = fakeBuilder()
         .scheduleDate(date)
@@ -56,7 +56,7 @@ class ControllerMessageMapperTest {
 
 
   @Test
-  public void whenEntityHasWhatsAppThenConvertToDto() {
+  void whenEntityHasWhatsAppThenConvertToDto() {
     var message = fakeBuilder()
         .channel(CommunicationChannel.WHATSAPP)
         .build();
@@ -66,7 +66,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenHasDateInCreateDtoThenConvertToEntity() {
+  void whenHasDateInCreateDtoThenConvertToEntity() {
     var date = ZonedDateTime.now();
     var message = fakeDto()
         .scheduleDate(date)
@@ -77,7 +77,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenHasWhatsAppInCreateDtoThenConvertToEntity() {
+  void whenHasWhatsAppInCreateDtoThenConvertToEntity() {
     var message = fakeDto()
         .channel(CommunicationChannelDto.WHATSAPP)
         .build();
@@ -87,7 +87,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenEntityHasEmailThenConvertToDto() {
+  void whenEntityHasEmailThenConvertToDto() {
     var message = fakeBuilder()
         .channel(CommunicationChannel.EMAIL)
         .build();
@@ -97,7 +97,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenHasEmailInCreateDtoThenConvertToEntity() {
+  void whenHasEmailInCreateDtoThenConvertToEntity() {
     var message = fakeDto()
         .channel(CommunicationChannelDto.EMAIL)
         .build();
@@ -106,15 +106,9 @@ class ControllerMessageMapperTest {
     assertThat(entity.getChannel()).isEqualTo(CommunicationChannel.EMAIL);
   }
 
-  private MessageCreateDto.MessageCreateDtoBuilder fakeDto() {
-    return MessageCreateDto.builder().body("empty")
-        .recipient(RecipientDto.builder()
-            .phoneNumber("123")
-            .build());
-  }
 
   @Test
-  public void whenEntityHasSmsThenConvertToDto() {
+  void whenEntityHasSmsThenConvertToDto() {
     var message = fakeBuilder()
         .channel(CommunicationChannel.SMS)
         .build();
@@ -124,7 +118,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenHasSmsInCreateDtoThenConvertToEntity() {
+  void whenHasSmsInCreateDtoThenConvertToEntity() {
     var message = fakeDto()
         .channel(CommunicationChannelDto.SMS)
         .build();
@@ -134,7 +128,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenEntityHasPushThenConvertToDto() {
+  void whenEntityHasPushThenConvertToDto() {
     var message = fakeBuilder()
         .channel(CommunicationChannel.PUSH)
         .build();
@@ -144,7 +138,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenHasPushInCreateDtoThenConvertToEntity() {
+  void whenHasPushInCreateDtoThenConvertToEntity() {
     var message = fakeDto()
         .channel(CommunicationChannelDto.PUSH)
         .build();
@@ -154,7 +148,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenWaitingStatusOnChannelThenConvertToDto() {
+  void whenWaitingStatusOnChannelThenConvertToDto() {
     var message = fakeBuilder()
         .chats(List.of(Chat.builder().status(Status.WAITING).build()))
         .build();
@@ -166,7 +160,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenSentStatusOnChannelThenConvertToDto() {
+  void whenSentStatusOnChannelThenConvertToDto() {
     var message = fakeBuilder()
         .chats(List.of(Chat.builder().status(Status.SENT).build()))
         .build();
@@ -177,16 +171,8 @@ class ControllerMessageMapperTest {
     );
   }
 
-  private Message.MessageBuilder fakeBuilder() {
-    return Message.builder().body(MessageBody.from("empty"))
-        .recipient(Recipient.builder()
-            .phone(Phone.newNumber("123123"))
-            .build())
-        .id(MessageId.from(1L));
-  }
-
   @Test
-  public void whenSendingStatusOnChannelThenConvertToDto() {
+  void whenSendingStatusOnChannelThenConvertToDto() {
     var message = fakeBuilder()
         .chats(List.of(Chat.builder().status(Status.SENDING).build()))
         .build();
@@ -198,20 +184,24 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenDateOnChannelThenConvertToDto() {
+  void whenDateOnChannelThenConvertToDto() {
     var date = ZonedDateTime.now();
     var message = fakeBuilder()
         .chats(List.of(Chat.builder().date(date).build()))
         .build();
     var dto = mapper.toDto(message);
     assertThat(dto).isNotNull();
-    assertThat(dto.getChats()).hasSize(1).first().satisfies(
-        c -> assertThat(c.getDate()).isEqualTo(date)
+    assertThat(dto).isNotNull();
+    assertThat(dto.getChats()).hasSize(1).first().satisfies(c ->
+        {
+          assertThat(c.getDate()).isEqualTo(date);
+          assertThat(c.getStatus()).isEqualTo(StatusResponseDto.WAITING);
+        }
     );
   }
 
   @Test
-  public void whenHasIdThenConvertToDto() {
+  void whenHasIdThenConvertToDto() {
     var message = fakeBuilder()
         .id(MessageId.from(123L))
         .build();
@@ -221,7 +211,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenEntityHasRecipientNameThenConvertToDto() {
+  void whenEntityHasRecipientNameThenConvertToDto() {
     var message = fakeBuilder()
         .recipient(Recipient.builder()
             .name("Alisson")
@@ -234,7 +224,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenHasRecipientNameInCreateDtoThenConvertToEntity() {
+  void whenHasRecipientNameInCreateDtoThenConvertToEntity() {
     var message = MessageCreateDto.builder()
         .body("empty")
         .recipient(RecipientDto.builder()
@@ -248,7 +238,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenEntityHasRecipientEmailThenConvertToDto() {
+  void whenEntityHasRecipientEmailThenConvertToDto() {
     var message = fakeBuilder()
         .recipient(Recipient.builder()
             .email("alisson@mail.com")
@@ -261,7 +251,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenHasRecipientEmailInCreateDtoThenConvertToEntity() {
+  void whenHasRecipientEmailInCreateDtoThenConvertToEntity() {
     var message = MessageCreateDto.builder().body("empty")
         .recipient(RecipientDto.builder()
             .phoneNumber("123")
@@ -274,7 +264,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenEntityHasRecipientPhoneIdThenConvertToDto() {
+  void whenEntityHasRecipientPhoneIdThenConvertToDto() {
     var message = fakeBuilder()
         .recipient(Recipient.builder()
             .phone(Phone.from("123", "16000000"))
@@ -286,7 +276,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenHasRecipientPhoneIdInCreateDtoThenConvertToEntity() {
+  void whenHasRecipientPhoneIdInCreateDtoThenConvertToEntity() {
     var message = MessageCreateDto.builder().body("empty")
         .recipient(RecipientDto.builder()
             .phoneId("123")
@@ -299,7 +289,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenEntityHasRecipientPhoneNumberThenConvertToDto() {
+  void whenEntityHasRecipientPhoneNumberThenConvertToDto() {
     var message = fakeBuilder()
         .recipient(Recipient.builder()
             .phone(Phone.from("123", "999988887777"))
@@ -311,7 +301,7 @@ class ControllerMessageMapperTest {
   }
 
   @Test
-  public void whenHasRecipientPhoneNumberInCreateDtoThenConvertToEntity() {
+  void whenHasRecipientPhoneNumberInCreateDtoThenConvertToEntity() {
     var message = MessageCreateDto.builder().body("body")
         .recipient(RecipientDto.builder()
             .phoneNumber("999988887777")
@@ -322,5 +312,19 @@ class ControllerMessageMapperTest {
     assertThat(entity.getRecipient().getPhone().getPhoneNumber()).isEqualTo("999988887777");
   }
 
+  private MessageCreateDto.MessageCreateDtoBuilder fakeDto() {
+    return MessageCreateDto.builder().body("empty")
+        .recipient(RecipientDto.builder()
+            .phoneNumber("123")
+            .build());
+  }
 
+  private Message.MessageBuilder fakeBuilder() {
+    return Message.builder().body(MessageBody.from("empty"))
+        .recipient(Recipient.builder()
+            .phone(Phone.newNumber("123123"))
+            .build())
+        .id(MessageId.from(1L));
+  }
+  
 }

@@ -51,7 +51,7 @@ class MessageControllerTest {
   private final ControllerMessageMapper mapper = new ControllerMessageMapper();
 
   @Test
-  public void whenDeleteTheReturn204() throws NotificationException {
+  void whenDeleteTheReturn204() throws NotificationException {
     var id = 1L;
     var messageId = MessageId.from(id);
     var response = messageController.delete(id);
@@ -62,7 +62,7 @@ class MessageControllerTest {
   }
 
   @Test
-  public void whenFindByIdTheReturn200() throws NotificationException {
+  void whenFindByIdTheReturn200() throws NotificationException {
     var id = 2L;
     var messageId = MessageId.from(id);
     when(findRequestNotification.find(messageId)).thenReturn(Message.builder()
@@ -84,7 +84,7 @@ class MessageControllerTest {
   }
 
   @Test
-  public void whenCreateTheReturn201() throws NotificationException {
+  void whenCreateTheReturn201() throws NotificationException {
     var id = 4L;
     var messageId = MessageId.from(id);
     var body = "Olá";

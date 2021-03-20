@@ -7,7 +7,7 @@ import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 @Provider
-public class MethodArgumentNotValidExceptionMapper implements ExceptionMapper<NotificationException> {
+public class NotificationExceptionMapper implements ExceptionMapper<NotificationException> {
 
   @Override
   public Response toResponse(final NotificationException e) {
