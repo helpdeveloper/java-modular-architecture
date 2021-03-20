@@ -94,6 +94,8 @@ Para quem ainda não conhece o [k6](https://k6.io/) é uma ferramenta para teste
 k6 run  k6/script.js
 ```
 
+O tempo de execução do K6 e quantidade de "Execuções" é configuravel, basta alterar o arquivo [Script do K6](/k6/script.js)
+
 ## Monitorando aplicação
 
 ### Observabilidade
@@ -105,7 +107,7 @@ Acesssando o [Grafana Local](http://localhost:3000) já basta navegar até o das
     - login: admin
     - senha: admin
     
-Já o [Promehteus](http://localhost:9090) só acessar o link (sem login):
+Já o [Promehteus Local](http://localhost:9090) só acessar o link (sem login):
 - http://localhost:9090
 
 ### Acessando o banco de dados
