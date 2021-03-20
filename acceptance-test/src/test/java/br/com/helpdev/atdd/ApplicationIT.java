@@ -70,7 +70,6 @@ public class ApplicationIT extends AbstractContainerBaseTest {
         .statusCode(201)
         .extract()
         .path("id");
-    System.out.println("Id: " + id);
     given()
         .when()
         .delete("/v1/message/{id}", id)
@@ -130,7 +129,6 @@ public class ApplicationIT extends AbstractContainerBaseTest {
         .body(buildMessage(ZonedDateTime.now(), CommunicationChannelDto.SMS))
         .when()
         .post("/v1/message/")
-        .prettyPeek()
         .then()
         .statusCode(201)
         .body("id", notNullValue())

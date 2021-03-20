@@ -61,7 +61,7 @@ public class ControllerMessageMapper {
   }
 
   private Recipient parse(final RecipientDto recipient) {
-    return recipient == null ? null : Recipient.builder()
+    return Recipient.builder()
         .email(recipient.getEmail())
         .name(recipient.getName())
         .phone(Phone.from(recipient.getPhoneId(), recipient.getPhoneNumber()))
@@ -69,7 +69,7 @@ public class ControllerMessageMapper {
   }
 
   private RecipientDto parse(final Recipient recipient) {
-    return recipient == null ? null : RecipientDto.builder()
+    return RecipientDto.builder()
         .email(recipient.getEmail())
         .name(recipient.getName())
         .phoneId(recipient.getPhone().getPhoneId().orElse(null))
