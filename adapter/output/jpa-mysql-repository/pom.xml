@@ -15,9 +15,6 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <coverage.line>1</coverage.line>
-        <coverage.branch>1</coverage.branch>
-        <mutation.threshold>100</mutation.threshold>
     </properties>
 
     <dependencies>
