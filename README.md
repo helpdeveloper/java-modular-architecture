@@ -3,7 +3,12 @@
 ![Stars](https://img.shields.io/github/stars/helpdeveloper/java-modular-architecturei.svg)
 ![Release Version](https://img.shields.io/github/release/helpdeveloper/java-modular-architecture.svg)
 # Arquitetura modular
-### Projeto em desenvolvimento
+
+O objetivo do bom design de software, como já diria Robert C. Martin, em seu livro 'Clean Architecture: A Craftsman's Guide to Software Structure and Design', é minimizar os recursos humanos necessários para construir e manter um determinado sistema. 
+
+Esse projeto é inspirado em situações e dificuldades reais já vivenciadas que nos permitiu ter uma visão um pouco mais abrangente sobre como ter e construir uma arquitetura duradoura. "The only way to go fast, is to go well." - Robert C. Martin
+
+## Modelo proposto
 
 <p align="center">
     <img src="./images/arch.png" height="350">
@@ -122,6 +127,11 @@ Ao acessar o [Adminer](http://localhost:5000/adminer) é possivel executar scrip
     - usuário:
     - senha:
     - base:
+
+# Links
+
+- [Apresentação em slides - Jornada Colaborativa Summit 2021](https://docs.google.com/presentation/d/1rIwdL6hhTcmWSujE3tRd9VxKhE3RKwta0krmwRU08_Y/edit?usp=sharing)
+- [Artigo - Criando uma aplicação modular muito além do Clean Architecture (aguardando publicação)]()
 
 # Desenvolvedores
 
