@@ -85,6 +85,7 @@ docker-compose -f .docker-compose/quarkus-app.yml up
 Para ter uma interface de fácil com o OpenAPI consumido usamos o [RapiDoc](https://mrin9.github.io/RapiDoc/).
 
 Basta acessar [Endereço local](http://localhost:5000) e já pode testar as APIs 
+- http://localhost:5000
 
 ## Rodando teste de carga
 Para quem ainda não conhece o [k6](https://k6.io/) é uma ferramenta para testes de carga, basta [Instalar o K6](https://k6.io/docs/getting-started/installation) e executar o comando:
@@ -100,17 +101,21 @@ Saber como a aplicação está se comportando e métricas
 
 A combinação poderosa entre o [Grafana](https://grafana.com/) e o [Prometheus](https://prometheus.io/) permite gráficos e alertas configuraveis.
 Acesssando o [Grafana Local](http://localhost:3000) já basta navegar até o dashboard précadastro e ter uma amostrado dos dados da apliação e das ferramentas.
-- login: admin
-- senha: admin
+- http://localhost:3000
+    - login: admin
+    - senha: admin
+    
+Já o [Promehteus](http://localhost:9090) só acessar o link (sem login):
+- http://localhost:9090
 
 ### Acessando o banco de dados
 
-Ao acessar o [Adminer](http://localhost:3000) é possivel executar scripts SQL além de adicionar e altarer dados dentro das tabelas.
-
-- host:
-- usuário:
-- senha:
-- base:
+Ao acessar o [Adminer](http://localhost:5000/adminer) é possivel executar scripts SQL além de adicionar e altarer dados dentro das tabelas.
+- http://localhost:5000/adminer
+    - host:
+    - usuário:
+    - senha:
+    - base:
 
 # Desenvolvedores
 
