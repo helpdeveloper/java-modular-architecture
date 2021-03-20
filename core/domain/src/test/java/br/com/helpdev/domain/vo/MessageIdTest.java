@@ -23,9 +23,10 @@ class MessageIdTest {
 
   @Test
   void shouldBeCreatedWithSuccess() {
-    final var messageBody = MessageId.from(1L);
-    assertThat(messageBody.value())
+    final var messageId = MessageId.from(1L);
+    assertThat(messageId.value())
         .isNotNull()
         .isEqualTo(1L);
+    assertThat(messageId.toString()).isEqualTo("1");
   }
 }
