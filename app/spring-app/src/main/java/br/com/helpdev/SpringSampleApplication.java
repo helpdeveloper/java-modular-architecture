@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication(
-    scanBasePackages = {"br.com.helpdev", "br.com.helpdev.output"}
+    scanBasePackages = {"br.com.helpdev"}
 )
 public class SpringSampleApplication {
 

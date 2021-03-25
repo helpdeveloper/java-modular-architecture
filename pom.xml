@@ -64,7 +64,7 @@
         <validation-api.version>2.0.1.Final</validation-api.version>
         <microprofile-fault-tolerance.version>3.0</microprofile-fault-tolerance.version>
         <modelmapper.version>2.3.0</modelmapper.version>
-        <glassfish.version>2.22.2</glassfish.version>
+        <glassfish.test.version>2.32</glassfish.test.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
     </properties>
 
@@ -269,9 +269,8 @@
             </dependency>
             <dependency>
                 <groupId>org.glassfish.jersey.core</groupId>
-                <artifactId>jersey-common</artifactId>
-                <version>${glassfish.version}</version>
-                <scope>test</scope>
+                <artifactId>jersey-server</artifactId>
+                <version>${glassfish.test.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.tomakehurst</groupId>

@@ -78,7 +78,7 @@
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
-            <artifactId>jersey-common</artifactId>
+            <artifactId>jersey-server</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
