@@ -9,9 +9,9 @@ import org.testcontainers.utility.MountableFile;
 
 abstract class AbstractContainerBaseTest {
 
-  private static final GenericContainer APP;
-  private static final GenericContainer FLYWAY;
-  private static final MySQLContainer MY_SQL_CONTAINER;
+  private static final GenericContainer<?> APP;
+  private static final GenericContainer<?> FLYWAY;
+  private static final MySQLContainer<?> MY_SQL_CONTAINER;
 
   static {
     final var network = Network.newNetwork();

@@ -16,8 +16,9 @@
         <maven.compiler.target>11</maven.compiler.target>
         <mutation.skip>true</mutation.skip>
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+        <maven-failsafe-plugin.version>2.22.0</maven-failsafe-plugin.version>
         <mysql-connector-java.version>8.0.23</mysql-connector-java.version>
-        <docker-maven-plugin.version>0.34.1</docker-maven-plugin.version>
+        <docker-maven-plugin.version>0.35.0</docker-maven-plugin.version>
         <run-java-sh.version>1.2.2</run-java-sh.version>
         <mutation.skip>true</mutation.skip>
     </properties>
@@ -97,47 +98,6 @@
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>${maven-resources-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>copy-jar</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${basedir}/target/quarkus/</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>../app/quarkus-app/target/</directory>
-                                    <includes>
-                                        <include>*-runner.jar</include>
-                                    </includes>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>copy-lib</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${basedir}/target/quarkus/lib</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>../app/quarkus-app/target/lib</directory>
-                                    <filtering>false</filtering>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>${docker-maven-plugin.version}</version>
@@ -155,14 +115,11 @@
                             <name>app-test:integration</name>
                             <alias>dockerfile</alias>
                             <build>
-                                <contextDir>${project.basedir}/</contextDir>
-                                <assembly>
-                                    <descriptorRef>rootWar</descriptorRef>
-                                </assembly>
+                                <contextDir>${project.parent.basedir}</contextDir>
+                                <dockerFile>${project.parent.basedir}/Dockerfile</dockerFile>
                             </build>
                         </image>
                     </images>
-
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -172,29 +129,17 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>**/*IT.java</exclude>
-                    </excludes>
-                </configuration>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${maven-failsafe-plugin.version}</version>
                 <executions>
                     <execution>
-                        <id>integration-test</id>
                         <goals>
-                            <goal>test</goal>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
                         </goals>
-                        <phase>integration-test</phase>
-                        <configuration>
-                            <excludes>
-                                <exclude>none</exclude>
-                            </excludes>
-                            <includes>
-                                <include>**/*IT.java</include>
-                            </includes>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

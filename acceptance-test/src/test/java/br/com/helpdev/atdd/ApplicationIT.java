@@ -11,10 +11,10 @@ import io.restassured.http.ContentType;
 import java.time.ZonedDateTime;
 import org.junit.jupiter.api.Test;
 
-public class ApplicationIT extends AbstractContainerBaseTest {
+class ApplicationIT extends AbstractContainerBaseTest {
 
   @Test
-  public void whenCreateNewScheduleThenReturn() {
+  void whenCreateNewScheduleThenReturn() {
     var now = ZonedDateTime.now();
     Integer id = given()
         .contentType(ContentType.JSON)
@@ -31,7 +31,6 @@ public class ApplicationIT extends AbstractContainerBaseTest {
         .body("chats[0].status", equalTo("WAITING"))
         .extract()
         .path("id");
-
     given()
         .when()
         .get("/v1/message/{id}", id)
@@ -48,7 +47,7 @@ public class ApplicationIT extends AbstractContainerBaseTest {
   }
 
   @Test
-  public void whenGetWithInvalidIdThenReturnError() {
+  void whenGetWithInvalidIdThenReturnError() {
     given()
         .when()
         .get("/v1/message/{id}", "123123")
@@ -59,7 +58,7 @@ public class ApplicationIT extends AbstractContainerBaseTest {
   }
 
   @Test
-  public void whenDeleteMessageThenRemove() {
+  void whenDeleteMessageThenRemove() {
     var now = ZonedDateTime.now();
     Integer id = given()
         .contentType(ContentType.JSON)
@@ -83,7 +82,7 @@ public class ApplicationIT extends AbstractContainerBaseTest {
   }
 
   @Test
-  public void whenDeleteWithInvalidIdThenReturnError() {
+  void whenDeleteWithInvalidIdThenReturnError() {
     given()
         .when()
         .delete("/v1/message/{id}", "123123")
@@ -93,7 +92,7 @@ public class ApplicationIT extends AbstractContainerBaseTest {
   }
 
   @Test
-  public void whenCreateNewEmailScheduleThenReturn() {
+  void whenCreateNewEmailScheduleThenReturn() {
     given()
         .contentType(ContentType.JSON)
         .body(buildMessage(ZonedDateTime.now(), CommunicationChannelDto.EMAIL))
@@ -108,7 +107,7 @@ public class ApplicationIT extends AbstractContainerBaseTest {
   }
 
   @Test
-  public void whenCreateNewPushScheduleThenReturn() {
+  void whenCreateNewPushScheduleThenReturn() {
     given()
         .contentType(ContentType.JSON)
         .body(buildMessage(ZonedDateTime.now(), CommunicationChannelDto.PUSH))
@@ -123,7 +122,7 @@ public class ApplicationIT extends AbstractContainerBaseTest {
   }
 
   @Test
-  public void whenCreateNewSmsScheduleThenReturn() {
+  void whenCreateNewSmsScheduleThenReturn() {
     given()
         .contentType(ContentType.JSON)
         .body(buildMessage(ZonedDateTime.now(), CommunicationChannelDto.SMS))
