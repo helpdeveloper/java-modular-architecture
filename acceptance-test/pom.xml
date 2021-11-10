@@ -121,13 +121,6 @@
                         </image>
                     </images>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>io.fabric8</groupId>
-                        <artifactId>run-java-sh</artifactId>
-                        <version>${run-java-sh.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
 
             <plugin>
