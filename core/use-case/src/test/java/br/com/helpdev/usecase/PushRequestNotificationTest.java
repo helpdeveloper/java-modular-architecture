@@ -2,6 +2,7 @@ package br.com.helpdev.usecase;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import br.com.helpdev.domain.Message;
@@ -49,6 +50,7 @@ class PushRequestNotificationTest {
 
     final var response = deleteRequestNotification.push(message);
 
+    verify(protocolGeneratorClient).generateNewProtocol();
     assertThat(response)
         .isEqualTo(requiredResponse);
   }
