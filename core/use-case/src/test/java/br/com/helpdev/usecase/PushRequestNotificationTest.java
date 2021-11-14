@@ -11,6 +11,7 @@ import br.com.helpdev.domain.vo.MessageBody;
 import br.com.helpdev.domain.vo.MessageId;
 import br.com.helpdev.domain.vo.Phone;
 import br.com.helpdev.usecase.port.MessageRepository;
+import br.com.helpdev.usecase.port.ProtocolGeneratorClient;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -23,6 +24,9 @@ class PushRequestNotificationTest {
   @Mock
   private MessageRepository repository;
 
+  @Mock
+  private ProtocolGeneratorClient protocolGeneratorClient;
+
   @InjectMocks
   private PushRequestNotification deleteRequestNotification;
 
@@ -30,6 +34,7 @@ class PushRequestNotificationTest {
   void shouldBeCreateMessageWithSuccess() {
     final var message = fakeBuilder().build();
     final var requiredResponse = mock(Message.class);
+    final var protocol = "xpto-protocol";
 
     when(repository.create(message))
         .then(invocationOnMock -> {
@@ -40,6 +45,7 @@ class PushRequestNotificationTest {
               .hasSize(1);
           return requiredResponse;
         });
+    when(protocolGeneratorClient.generateNewProtocol()).thenReturn(protocol);
 
     final var response = deleteRequestNotification.push(message);
 

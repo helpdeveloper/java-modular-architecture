@@ -7,7 +7,7 @@ import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
-public class QuarkusAppTest {
+class QuarkusAppTest {
 
   @Test
   void whenAppIsHealthThenReturnLive() {

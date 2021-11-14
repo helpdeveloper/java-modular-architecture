@@ -15,6 +15,7 @@
         <module>core/use-case</module>
         <module>adapter/input/jaxrs-controller-v1</module>
         <module>adapter/output/jpa-mysql-repository</module>
+        <module>adapter/output/restclient-http-services</module>
         <module>app/spring-app</module>
         <module>app/quarkus-app</module>
         <module>acceptance-test</module>
@@ -24,6 +25,7 @@
         <coverage.line>1</coverage.line>
         <coverage.branch>1</coverage.branch>
         <mutation.threshold>100</mutation.threshold>
+        <mutation.skip>false</mutation.skip>
         <java.version>11</java.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -52,7 +54,6 @@
         <mutation.scan.code>br.com.helpdev.*</mutation.scan.code>
         <mutation.excluded.code></mutation.excluded.code>
         <mutation.scan.test>br.com.helpdev.*</mutation.scan.test>
-        <mutation.skip>false</mutation.skip>
         <pitest-maven.version>1.6.2</pitest-maven.version>
         <java-faker.version>1.0.2</java-faker.version>
         <jakarta.persistence-api.version>2.2.3</jakarta.persistence-api.version>
@@ -106,6 +107,11 @@
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
+                <artifactId>restclient-http-services</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>quarkus-app</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -134,15 +140,11 @@
                 <artifactId>javax.ws.rs-api</artifactId>
                 <version>${javax.ws.rs-api.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.eclipse.microprofile.rest.client</groupId>
                 <artifactId>microprofile-rest-client-spec</artifactId>
-            </dependency>
-
-            <dependency>
-                <groupId>org.eclipse.microprofile.fault-tolerance</groupId>
-                <artifactId>microprofile-fault-tolerance-spec</artifactId>
+                <type>pom</type>
+                <version>${microprofile-rest-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>javax.xml.bind</groupId>
@@ -310,9 +312,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
-                <configuration>
-                    <argLine>@{argLine} -Xmx1024m -XX:MaxPermSize=256m</argLine>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

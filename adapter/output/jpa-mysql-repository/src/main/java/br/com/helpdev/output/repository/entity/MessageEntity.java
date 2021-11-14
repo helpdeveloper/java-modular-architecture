@@ -35,6 +35,8 @@ public class MessageEntity {
   private ZonedDateTime scheduleDate;
   @Column(name = "message_body")
   private String body;
+  @Column(name = "protocol")
+  private String protocol;
   @Embedded
   private RecipientEntity recipient;
   @Column(name = "message_channel")

@@ -20,6 +20,7 @@ public class Message {
 
   @EqualsAndHashCode.Include
   private final MessageId id;
+  private final String protocol;
   private final ZonedDateTime scheduleDate;
   private final MessageBody body;
   private final Recipient recipient;
@@ -27,13 +28,19 @@ public class Message {
   private final Collection<Chat> chats;
 
   @Builder
-  Message(final MessageId id, final ZonedDateTime scheduleDate, final MessageBody body, final Recipient recipient,
-                 final CommunicationChannel channel, final Collection<Chat> chats) {
+  Message(final MessageId id,
+          final String protocol,
+          final ZonedDateTime scheduleDate,
+          final MessageBody body,
+          final Recipient recipient,
+          final CommunicationChannel channel,
+          final Collection<Chat> chats) {
     Objects.requireNonNull(body, "Body cant be null");
     if (recipient == null) {
       throw new InvalidRecipientException("The message needs a recipient");
     }
     this.id = id;
+    this.protocol = protocol;
     this.scheduleDate = scheduleDate;
     this.body = body;
     this.recipient = recipient;

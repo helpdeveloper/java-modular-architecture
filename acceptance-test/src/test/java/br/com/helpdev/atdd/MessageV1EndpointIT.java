@@ -1,6 +1,8 @@
 package br.com.helpdev.atdd;
 
+import static br.com.helpdev.atdd.RandomDataApiMock.mockRandomIdNumber;
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
@@ -11,10 +13,12 @@ import io.restassured.http.ContentType;
 import java.time.ZonedDateTime;
 import org.junit.jupiter.api.Test;
 
-class ApplicationIT extends AbstractContainerBaseTest {
+class MessageV1EndpointIT extends AbstractContainerBaseTest {
 
   @Test
   void whenCreateNewScheduleThenReturn() {
+    mockRandomIdNumber(MOCK_SERVER);
+
     var now = ZonedDateTime.now();
     Integer id = given()
         .contentType(ContentType.JSON)
@@ -36,6 +40,7 @@ class ApplicationIT extends AbstractContainerBaseTest {
         .get("/v1/message/{id}", id)
         .then()
         .statusCode(200)
+        .body("protocol", equalTo("000-22-1110"))
         .body("scheduleDate", notNullValue())
         .body("body", equalTo("Hello"))
         .body("channel", equalTo("WHATSAPP"))
@@ -43,7 +48,8 @@ class ApplicationIT extends AbstractContainerBaseTest {
         .body("recipient.phoneId", equalTo("123"))
         .body("recipient.email", equalTo("johm@jame.com"))
         .body("recipient.phoneNumber", equalTo("89898989"))
-        .body("chats[0].status", equalTo("WAITING"));
+        .body("chats[0].status", equalTo("WAITING"))
+        .body(matchesJsonSchemaInClasspath("jsons/v1/postMessage.json"));
   }
 
   @Test

@@ -17,10 +17,11 @@
         <mutation.skip>true</mutation.skip>
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
         <maven-failsafe-plugin.version>2.22.0</maven-failsafe-plugin.version>
-        <mysql-connector-java.version>8.0.23</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.25</mysql-connector-java.version>
         <docker-maven-plugin.version>0.35.0</docker-maven-plugin.version>
         <run-java-sh.version>1.2.2</run-java-sh.version>
         <mutation.skip>true</mutation.skip>
+        <wiremock-jre8.version>2.27.2</wiremock-jre8.version>
     </properties>
 
     <dependencies>
@@ -90,6 +91,12 @@
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock-jre8</artifactId>
+            <version>${wiremock-jre8.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
