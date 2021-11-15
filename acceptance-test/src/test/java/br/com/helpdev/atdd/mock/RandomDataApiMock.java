@@ -1,4 +1,4 @@
-package br.com.helpdev.atdd;
+package br.com.helpdev.atdd.mock;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;

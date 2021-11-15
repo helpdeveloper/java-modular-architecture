@@ -1,6 +1,6 @@
 package br.com.helpdev.atdd;
 
-import static br.com.helpdev.atdd.RandomDataApiMock.mockRandomIdNumber;
+import static br.com.helpdev.atdd.mock.RandomDataApiMock.mockRandomIdNumber;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -13,7 +13,7 @@ import io.restassured.http.ContentType;
 import java.time.ZonedDateTime;
 import org.junit.jupiter.api.Test;
 
-class MessageV1EndpointIT extends AbstractContainerBaseTest {
+class MessageV1EndpointIT extends DefaultContainerStarterTest {
 
   @Test
   void whenCreateNewScheduleThenReturn() {
@@ -65,6 +65,8 @@ class MessageV1EndpointIT extends AbstractContainerBaseTest {
 
   @Test
   void whenDeleteMessageThenRemove() {
+    mockRandomIdNumber(MOCK_SERVER);
+
     var now = ZonedDateTime.now();
     Integer id = given()
         .contentType(ContentType.JSON)
@@ -99,6 +101,8 @@ class MessageV1EndpointIT extends AbstractContainerBaseTest {
 
   @Test
   void whenCreateNewEmailScheduleThenReturn() {
+    mockRandomIdNumber(MOCK_SERVER);
+
     given()
         .contentType(ContentType.JSON)
         .body(buildMessage(ZonedDateTime.now(), CommunicationChannelDto.EMAIL))
@@ -114,6 +118,8 @@ class MessageV1EndpointIT extends AbstractContainerBaseTest {
 
   @Test
   void whenCreateNewPushScheduleThenReturn() {
+    mockRandomIdNumber(MOCK_SERVER);
+
     given()
         .contentType(ContentType.JSON)
         .body(buildMessage(ZonedDateTime.now(), CommunicationChannelDto.PUSH))
@@ -129,6 +135,8 @@ class MessageV1EndpointIT extends AbstractContainerBaseTest {
 
   @Test
   void whenCreateNewSmsScheduleThenReturn() {
+    mockRandomIdNumber(MOCK_SERVER);
+
     given()
         .contentType(ContentType.JSON)
         .body(buildMessage(ZonedDateTime.now(), CommunicationChannelDto.SMS))
