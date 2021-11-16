@@ -11,6 +11,7 @@ import lombok.Data;
 public class MessageResponseDto {
 
   private Long id;
+  private String protocol;
   @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
   private ZonedDateTime scheduleDate;
   private String body;

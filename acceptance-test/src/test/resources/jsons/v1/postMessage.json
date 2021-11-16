@@ -1,0 +1,159 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/object1636888461.json",
+  "title": "Root",
+  "type": "object",
+  "required": [
+    "id",
+    "protocol",
+    "scheduleDate",
+    "body",
+    "recipient",
+    "channel",
+    "chats"
+  ],
+  "properties": {
+    "id": {
+      "$id": "#root/id",
+      "title": "Id",
+      "type": "integer",
+      "examples": [
+        2
+      ],
+      "default": 0
+    },
+    "protocol": {
+      "$id": "#root/protocol",
+      "title": "Protocol",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "484-34-9572"
+      ],
+      "pattern": "^.*$"
+    },
+    "scheduleDate": {
+      "$id": "#root/scheduleDate",
+      "title": "Scheduledate",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "2022-01-01T00:00:00.000Z"
+      ],
+      "pattern": "^.*$"
+    },
+    "body": {
+      "$id": "#root/body",
+      "title": "Body",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "body"
+      ],
+      "pattern": "^.*$"
+    },
+    "recipient": {
+      "$id": "#root/recipient",
+      "title": "Recipient",
+      "type": "object",
+      "required": [
+        "name",
+        "email",
+        "phoneNumber",
+        "phoneId"
+      ],
+      "properties": {
+        "name": {
+          "$id": "#root/recipient/name",
+          "title": "Name",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "zarelli"
+          ],
+          "pattern": "^.*$"
+        },
+        "email": {
+          "$id": "#root/recipient/email",
+          "title": "Email",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "gbzarelli@gmail.com"
+          ],
+          "pattern": "^.*$"
+        },
+        "phoneNumber": {
+          "$id": "#root/recipient/phoneNumber",
+          "title": "Phonenumber",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "1231231231"
+          ],
+          "pattern": "^.*$"
+        },
+        "phoneId": {
+          "$id": "#root/recipient/phoneId",
+          "title": "Phoneid",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "16"
+          ],
+          "pattern": "^.*$"
+        }
+      }
+    }
+  ,
+    "channel": {
+      "$id": "#root/channel",
+      "title": "Channel",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "PUSH"
+      ],
+      "pattern": "^.*$"
+    },
+    "chats": {
+      "$id": "#root/chats",
+      "title": "Chats",
+      "type": "array",
+      "default": [],
+      "items":{
+        "$id": "#root/chats/items",
+        "title": "Items",
+        "type": "object",
+        "required": [
+          "status",
+          "date"
+        ],
+        "properties": {
+          "status": {
+            "$id": "#root/chats/items/status",
+            "title": "Status",
+            "type": "string",
+            "default": "",
+            "examples": [
+              "WAITING"
+            ],
+            "pattern": "^.*$"
+          },
+          "date": {
+            "$id": "#root/chats/items/date",
+            "title": "Date",
+            "type": "string",
+            "default": "",
+            "examples": [
+              "2021-11-12T18:01:57.451-03:00"
+            ],
+            "pattern": "^.*$"
+          }
+        }
+      }
+
+    }
+  }
+}

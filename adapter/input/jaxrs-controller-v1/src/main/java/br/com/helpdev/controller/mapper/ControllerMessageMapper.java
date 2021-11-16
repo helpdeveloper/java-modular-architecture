@@ -26,6 +26,7 @@ public class ControllerMessageMapper {
   public MessageResponseDto toDto(final Message message) {
     return MessageResponseDto.builder()
         .id(message.getId().map(MessageId::value).orElse(null))
+        .protocol(message.getProtocol())
         .scheduleDate(message.getScheduleDate())
         .body(message.getBody().value())
         .channel(parse(message.getChannel()))

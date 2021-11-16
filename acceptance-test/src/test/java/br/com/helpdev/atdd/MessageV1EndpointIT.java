@@ -1,6 +1,8 @@
 package br.com.helpdev.atdd;
 
+import static br.com.helpdev.atdd.mock.RandomDataApiMock.mockRandomIdNumber;
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
@@ -11,10 +13,12 @@ import io.restassured.http.ContentType;
 import java.time.ZonedDateTime;
 import org.junit.jupiter.api.Test;
 
-class ApplicationIT extends AbstractContainerBaseTest {
+class MessageV1EndpointIT extends DefaultContainerStarterTest {
 
   @Test
   void whenCreateNewScheduleThenReturn() {
+    mockRandomIdNumber(MOCK_SERVER);
+
     var now = ZonedDateTime.now();
     Integer id = given()
         .contentType(ContentType.JSON)
@@ -36,6 +40,7 @@ class ApplicationIT extends AbstractContainerBaseTest {
         .get("/v1/message/{id}", id)
         .then()
         .statusCode(200)
+        .body("protocol", equalTo("000-22-1110"))
         .body("scheduleDate", notNullValue())
         .body("body", equalTo("Hello"))
         .body("channel", equalTo("WHATSAPP"))
@@ -43,7 +48,8 @@ class ApplicationIT extends AbstractContainerBaseTest {
         .body("recipient.phoneId", equalTo("123"))
         .body("recipient.email", equalTo("johm@jame.com"))
         .body("recipient.phoneNumber", equalTo("89898989"))
-        .body("chats[0].status", equalTo("WAITING"));
+        .body("chats[0].status", equalTo("WAITING"))
+        .body(matchesJsonSchemaInClasspath("jsons/v1/postMessage.json"));
   }
 
   @Test
@@ -59,6 +65,8 @@ class ApplicationIT extends AbstractContainerBaseTest {
 
   @Test
   void whenDeleteMessageThenRemove() {
+    mockRandomIdNumber(MOCK_SERVER);
+
     var now = ZonedDateTime.now();
     Integer id = given()
         .contentType(ContentType.JSON)
@@ -93,6 +101,8 @@ class ApplicationIT extends AbstractContainerBaseTest {
 
   @Test
   void whenCreateNewEmailScheduleThenReturn() {
+    mockRandomIdNumber(MOCK_SERVER);
+
     given()
         .contentType(ContentType.JSON)
         .body(buildMessage(ZonedDateTime.now(), CommunicationChannelDto.EMAIL))
@@ -108,6 +118,8 @@ class ApplicationIT extends AbstractContainerBaseTest {
 
   @Test
   void whenCreateNewPushScheduleThenReturn() {
+    mockRandomIdNumber(MOCK_SERVER);
+
     given()
         .contentType(ContentType.JSON)
         .body(buildMessage(ZonedDateTime.now(), CommunicationChannelDto.PUSH))
@@ -123,6 +135,8 @@ class ApplicationIT extends AbstractContainerBaseTest {
 
   @Test
   void whenCreateNewSmsScheduleThenReturn() {
+    mockRandomIdNumber(MOCK_SERVER);
+
     given()
         .contentType(ContentType.JSON)
         .body(buildMessage(ZonedDateTime.now(), CommunicationChannelDto.SMS))

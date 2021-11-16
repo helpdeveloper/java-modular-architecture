@@ -54,7 +54,11 @@
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-rest-client-jaxb</artifactId>
+            <artifactId>quarkus-rest-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-rest-client-jackson</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -71,6 +75,10 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>jaxrs-controller-v1</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>restclient-http-services</artifactId>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>

@@ -5,6 +5,7 @@ import br.com.helpdev.domain.Message;
 import br.com.helpdev.domain.Status;
 import br.com.helpdev.domain.exception.NotificationException;
 import br.com.helpdev.usecase.port.MessageRepository;
+import br.com.helpdev.usecase.port.ProtocolGeneratorClient;
 import java.time.ZonedDateTime;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
@@ -16,16 +17,21 @@ import javax.inject.Named;
 public class PushRequestNotification {
 
   private final MessageRepository repository;
+  private final ProtocolGeneratorClient protocolGeneratorClient;
 
   @Inject
-  PushRequestNotification(final MessageRepository repository) {
+  PushRequestNotification(final MessageRepository repository,
+                          final ProtocolGeneratorClient protocolGeneratorClient) {
     this.repository = repository;
+    this.protocolGeneratorClient = protocolGeneratorClient;
   }
 
   public Message push(final Message message) throws NotificationException {
-    return repository.create(message.toBuilder()
+    final var messageBuilder = message.toBuilder()
         .chats(getSingleListWithCurrentTimesAndWaitingStatus())
-        .build());
+        .protocol(protocolGeneratorClient.generateNewProtocol());
+
+    return repository.create(messageBuilder.build());
   }
 
   private List<Chat> getSingleListWithCurrentTimesAndWaitingStatus() {
