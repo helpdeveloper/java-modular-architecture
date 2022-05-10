@@ -48,7 +48,7 @@ abstract class DefaultContainerStarterTest {
   }
 
   private static GenericContainer<?> buildFlywayContainer(final Startable... dependsOn) {
-    return new GenericContainer<>("flyway/flyway")
+    return new GenericContainer<>("flyway/flyway:7.5.2")
         .dependsOn(dependsOn)
         .withNetwork(NETWORK)
         .withCopyFileToContainer(MountableFile.forHostPath("../resources/flyway/db"), "/flyway/sql")

@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.3'
 
 volumes:
   prometheus_data: {}
@@ -17,7 +17,7 @@ services:
       - 3306:3306
 
   flyway:
-    image: flyway/flyway
+    image: flyway/flyway:7.5.2
     command: -url=jdbc:mysql://sampledb -schemas=sample -user=root -password=pass123 -connectRetries=60 migrate
     volumes:
       - ../resources/flyway/db/migration:/flyway/sql
