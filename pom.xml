@@ -76,7 +76,7 @@
         <lombok.version>1.18.20</lombok.version>
         <slf4j.version>1.7.30</slf4j.version>
         <rest-assured.version>4.3.3</rest-assured.version>
-        <jackson-databind.version>2.11.3</jackson-databind.version>
+        <jackson-databind.version>2.12.6.1</jackson-databind.version>
         <jackson-datatype.version>2.11.3</jackson-datatype.version>
         <microprofile-fault-tolerance.version>3.0</microprofile-fault-tolerance.version>
         <modelmapper.version>2.3.0</modelmapper.version>
