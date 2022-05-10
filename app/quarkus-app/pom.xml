@@ -13,19 +13,12 @@
     <artifactId>quarkus-app</artifactId>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <surefire-plugin.version>2.22.1</surefire-plugin.version>
-        <maven.compiler.target>11</maven.compiler.target>
-        <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
-        <quarkus-plugin.version>1.10.5.Final</quarkus-plugin.version>
-        <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-        <quarkus.platform.version>1.10.5.Final</quarkus.platform.version>
-        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
         <maven.compiler.parameters>true</maven.compiler.parameters>
-        <compiler-plugin.version>3.8.1</compiler-plugin.version>
         <coverage.line>0</coverage.line>
         <coverage.branch>0</coverage.branch>
         <mutation.skip>true</mutation.skip>
@@ -131,7 +124,7 @@
             <plugin>
                 <groupId>org.jboss.jandex</groupId>
                 <artifactId>jandex-maven-plugin</artifactId>
-                <version>1.0.7</version>
+                <version>1.2.2</version>
                 <executions>
                     <execution>
                         <id>make-index</id>
@@ -142,9 +135,9 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>io.quarkus</groupId>
+                <groupId>${quarkus.platform.group-id}</groupId>
                 <artifactId>quarkus-maven-plugin</artifactId>
-                <version>${quarkus-plugin.version}</version>
+                <version>${quarkus.platform.version}</version>
                 <extensions>true</extensions>
                 <executions>
                     <execution>
@@ -158,15 +151,19 @@
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${compiler-plugin.version}</version>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${surefire-plugin.version}</version>
+                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <java.util.logging.manager>org.jboss.logmanager.LogManager
-                        </java.util.logging.manager>
+                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                         <maven.home>${maven.home}</maven.home>
                     </systemPropertyVariables>
                 </configuration>
