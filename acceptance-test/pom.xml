@@ -20,7 +20,7 @@
         <mysql-connector-java.version>8.0.25</mysql-connector-java.version>
         <docker-maven-plugin.version>0.38.1</docker-maven-plugin.version>
         <mutation.skip>true</mutation.skip>
-        <wiremock-jre8.version>2.32.2</wiremock-jre8.version>
+        <wiremock-jre8.version>2.33.2</wiremock-jre8.version>
     </properties>
 
     <dependencies>
