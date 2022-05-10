@@ -13,8 +13,8 @@
     <artifactId>jaxrs-controller-v1</artifactId>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <swagger-core.version>2.1.6</swagger-core.version>
         <swagger-maven-plugin.version>2.1.5</swagger-maven-plugin.version>
     </properties>

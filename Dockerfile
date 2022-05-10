@@ -27,7 +27,7 @@
 ###
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.3
 
-ARG JAVA_PACKAGE=java-11-openjdk-headless
+ARG JAVA_PACKAGE=java-17-openjdk-headless
 ARG RUN_JAVA_VERSION=1.3.8
 ENV FLYWAY_VERSION 7.5.2
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
@@ -56,9 +56,8 @@ RUN curl https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${FLYWAY
 
 # Configure the JAVA_OPTIONS, you can add -XshowSettings:vm to also display the heap size.
 ENV JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
-
-COPY app/quarkus-app/target/lib/* /deployments/lib/
-COPY app/quarkus-app/target/*-runner.jar /deployments/app.jar
+ENV JAVA_APP_JAR="quarkus-run.jar"
+COPY app/quarkus-app/target/quarkus-app/ /deployments/
 COPY resources/flyway/db/migration /flyway/sql
 
 EXPOSE 8080

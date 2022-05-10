@@ -13,7 +13,7 @@ class QuarkusAppTest {
   void whenAppIsHealthThenReturnLive() {
     given()
         .when()
-        .get("/health/live")
+        .get("/q/health/live")
         .then()
         .statusCode(200)
         .body(CoreMatchers.notNullValue());
