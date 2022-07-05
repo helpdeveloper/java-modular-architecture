@@ -86,8 +86,18 @@ Fornecendo toda infraestrutura necessária para o desenvolvedor.
 
 ## Build do projeto, já com todos os testes unitários e os testes de aceitação
 
+O framework é definido pelo profile, sendo que o default é do Quarkus.
+
+#### Quarkus
 ```bash
+mvn clean install -Pquarkus
+# or by default:
 mvn clean install
+```
+
+#### Spring boot
+```bash
+mvn clean install -Pspring
 ```
 
 ## Gerando imagem docker com o Quarkus
