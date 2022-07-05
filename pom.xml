@@ -95,7 +95,6 @@
         <javax.ws.rs-api.version>2.1.1</javax.ws.rs-api.version>
         <jakarta.transaction-api.version>1.3.3</jakarta.transaction-api.version>
         <jakarta.persistence-api.version>2.2.3</jakarta.persistence-api.version>
-        <microprofile-rest-spec.version>2.0</microprofile-rest-spec.version>
         <microprofile-rest-api.version>2.0</microprofile-rest-api.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
@@ -175,12 +174,6 @@
                 <version>${javax.ws.rs-api.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.eclipse.microprofile.rest.client</groupId>
-                <artifactId>microprofile-rest-client-spec</artifactId>
-                <type>pom</type>
-                <version>${microprofile-rest-api.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>javax.xml.bind</groupId>
                 <artifactId>jaxb-api</artifactId>
                 <version>${jaxb-api.version}</version>
@@ -189,6 +182,7 @@
                 <groupId>org.eclipse.microprofile.rest.client</groupId>
                 <artifactId>microprofile-rest-client-api</artifactId>
                 <version>${microprofile-rest-api.version}</version>
+                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.modelmapper</groupId>

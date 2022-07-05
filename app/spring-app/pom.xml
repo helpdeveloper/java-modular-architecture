@@ -82,17 +82,11 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <mainClass>br.com.helpdev.SpringSampleApplication</mainClass>
                     <layers>
                         <enabled>true</enabled>
                         <configuration>${project.basedir}/src/layers.xml</configuration>
                     </layers>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>br.com.helpdev.SpringSampleApplication</mainClass>
                 </configuration>
 
                 <executions>
