@@ -17,7 +17,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <quarkus.platform.version>2.10.1.Final</quarkus.platform.version>
+                <quarkus.platform.version>2.15.0.Final</quarkus.platform.version>
                 <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
                 <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
             </properties>
@@ -35,7 +35,7 @@
         <profile>
             <id>spring</id>
             <properties>
-                <spring-boot.version>2.7.1</spring-boot.version>
+                <spring-boot.version>2.7.7</spring-boot.version>
             </properties>
 
             <modules>

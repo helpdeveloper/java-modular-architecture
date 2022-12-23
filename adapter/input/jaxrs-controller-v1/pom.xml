@@ -15,7 +15,7 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <swagger-core.version>2.2.0</swagger-core.version>
+        <swagger-core.version>2.2.6</swagger-core.version>
         <swagger-maven-plugin.version>2.1.5</swagger-maven-plugin.version>
     </properties>
 
