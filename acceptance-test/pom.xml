@@ -16,10 +16,10 @@
         <maven.compiler.target>17</maven.compiler.target>
         <mutation.skip>true</mutation.skip>
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
-        <mysql-connector-java.version>8.0.29</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.30</mysql-connector-java.version>
         <docker-maven-plugin.version>0.38.1</docker-maven-plugin.version>
         <mutation.skip>true</mutation.skip>
-        <wiremock-jre8.version>2.33.2</wiremock-jre8.version>
+        <wiremock-jre8.version>2.35.0</wiremock-jre8.version>
     </properties>
 
     <dependencies>
