@@ -12,11 +12,15 @@
 		<into layer="snapshot-dependencies">
 			<include>*:*:*SNAPSHOT</include>
 		</into>
+		<into layer="internal-dependencies">
+			<include>br.com.helpdev:*:*</include>
+		</into>
 		<into layer="dependencies" />
 	</dependencies>
 	<layerOrder>
 		<layer>dependencies</layer>
 		<layer>spring-boot-loader</layer>
+		<layer>internal-dependencies</layer>
 		<layer>snapshot-dependencies</layer>
 		<layer>application</layer>
 	</layerOrder>
