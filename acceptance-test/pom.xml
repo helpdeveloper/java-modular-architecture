@@ -90,6 +90,27 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>quarkus</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <dockerfile>Dockerfile</dockerfile>
+            </properties>
+        </profile>
+        <profile>
+            <id>spring</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <dockerfile>Dockerfile.spring</dockerfile>
+            </properties>
+        </profile>
+
+    </profiles>
 
     <build>
         <plugins>
@@ -112,7 +133,7 @@
                             <alias>dockerfile</alias>
                             <build>
                                 <contextDir>${project.parent.basedir}</contextDir>
-                                <dockerFile>${project.parent.basedir}/Dockerfile</dockerFile>
+                                <dockerFile>${project.parent.basedir}/${dockerfile}</dockerFile>
                             </build>
                         </image>
                     </images>
