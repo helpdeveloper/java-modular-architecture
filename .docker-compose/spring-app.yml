@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.3'
 
 services:
 
@@ -7,7 +7,7 @@ services:
     ports:
       - 8080:8080
     environment:
-      MYSQL_URL: jdbc:mysql://db:3306/sample
+      MYSQL_URL: jdbc:mysql://sampledb:3306/sample
       MYSQL_USER: user
-      MYSQL_PASSWORD: pass
+      MYSQL_PASSWORD: pass123
 

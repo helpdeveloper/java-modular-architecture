@@ -44,7 +44,8 @@
                 <module>core/use-case</module>
                 <module>adapter/input/jaxrs-controller-v1</module>
                 <module>adapter/output/jpa-mysql-repository</module>
-                <module>adapter/output/restclient-http-services</module>
+                <!--TODO: The restclient don't work in Spring; In this sample, the implementation about ProtocolGeneratorClient is in the spring-app module ( br.com.helpdev.protocolgenerator )-->
+                <!--<module>adapter/output/restclient-http-services</module>-->
                 <module>app/spring-app</module>
                 <module>acceptance-test</module>
             </modules>
@@ -88,7 +89,7 @@
         <assertj.version>3.22.0</assertj.version>
         <testcontainers.version>1.17.1</testcontainers.version>
         <java-faker.version>1.0.2</java-faker.version>
-        <glassfish.test.version>2.32</glassfish.test.version>
+        <glassfish.test.version>2.35</glassfish.test.version>
 
         <!-- Specs / apis -->
         <jakarta.enterprise.cdi-api.version>2.0.2</jakarta.enterprise.cdi-api.version>
@@ -100,7 +101,7 @@
         <jaxb-api.version>2.3.1</jaxb-api.version>
 
         <!-- Others -->
-        <jersey.version>2.32</jersey.version>
+        <jersey.version>2.35</jersey.version>
         <lombok.version>1.18.24</lombok.version>
 
         <slf4j.version>1.7.36</slf4j.version>

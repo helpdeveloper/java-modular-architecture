@@ -96,6 +96,13 @@ mvn clean install
 ```
 
 #### Spring boot
+
+Nota: O projeto com Spring Boot não está finalizado. No caso o profile do Spring está sem o módulo
+de output: `restclient-http-service`, pois o Spring Boot não tem uma implementação para o microprofile-restclient
+no caso, o ideal seria a criação de um modulo com o Feign para implementar a porta do use-case: `ProtocolGeneratorClient`
+Porém, atualmente para o projeto rodar, essa porta foi implementada como um fake no modulo da app `spring-app` no seguinte package: ` br.com.helpdev.protocolgenerator`.
+Mas o módulo de `acceptance-test` irá falhar, pois o mesmo faz um mock desse serviço;
+
 ```bash
 mvn clean install -Pspring
 ```
@@ -103,6 +110,11 @@ mvn clean install -Pspring
 ## Gerando imagem docker com o Quarkus
 ```bash
 docker build  -t helpdev/app-quarkus-jvm .
+```
+
+## Gerando imagem docker com o Spring
+```bash
+docker build  -t helpdev/app-spring-jvm .
 ```
 
 ## Iniciando serviço
@@ -113,8 +125,15 @@ docker-compose -f .docker-compose/stack.yml up
 ```
 
 *Agora podemos iniciar nossa aplicação*
+
+Quarkus:
 ```bash
 docker-compose -f .docker-compose/quarkus-app.yml up
+```
+
+Spring:
+```bash
+docker-compose -f .docker-compose/spring-app.yml up
 ```
 
 ## Consumindo API
