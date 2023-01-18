@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <appender name="out-json" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+      <providers>
+        <timestamp>
+          <fieldName>ts</fieldName>
+          <timeZone>UTC</timeZone>
+        </timestamp>
+        <loggerName>
+          <fieldName>logger</fieldName>
+        </loggerName>
+        <logLevel>
+          <fieldName>severity</fieldName>
+        </logLevel>
+        <threadName>
+          <fieldName>thread</fieldName>
+        </threadName>
+        <mdc/>
+        <arguments>
+          <includeNonStructuredArguments>false</includeNonStructuredArguments>
+        </arguments>
+        <stackTrace>
+          <fieldName>stack</fieldName>
+        </stackTrace>
+        <message>
+          <fieldName>message</fieldName>
+        </message>
+      </providers>
+    </encoder>
+  </appender>
+  <appender name="out-console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%X{traceId},%X{spanId}] %X{external.id} [%t] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  <!-- Env: LOG_LEVEL options: debug, info, warn, error -->
+  <root level="${LOG_LEVEL:-info}">
+    <!-- Env: LOG_APPENDER options: out-json, out-console -->
+    <appender-ref ref="${LOG_APPENDER:-out-console}"/>
+  </root>
+</configuration>

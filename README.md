@@ -79,7 +79,7 @@ Fornecendo toda infraestrutura necessária para o desenvolvedor.
 
 ### Requerido
 
-- Java 11+
+- Java 17+
 - Maven 3+
 - docker
 - docker-compose

@@ -66,6 +66,7 @@ abstract class DefaultContainerStarterTest {
         .withEnv("MYSQL_PASSWORD", "test")
         .withEnv("MYSQL_URL", "jdbc:mysql://testdb:" + MySQLContainer.MYSQL_PORT + "/test?autoReconnect=true&useSSL=false")
         .withExposedPorts(8080)
+        //TODO: change to: '/actuator/health' if you use spring
         .waitingFor(Wait.forHttp("/q/health/ready").forStatusCode(200))
         .withLogConsumer(new Slf4jLogConsumer(LoggerFactory.getLogger("APP_CONTAINER")));
   }

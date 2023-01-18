@@ -102,7 +102,11 @@
         <!-- Others -->
         <jersey.version>2.32</jersey.version>
         <lombok.version>1.18.20</lombok.version>
-        <slf4j.version>1.7.30</slf4j.version>
+
+        <slf4j.version>1.7.36</slf4j.version>
+        <logback-core.version>1.2.3</logback-core.version>
+        <logstash-logback-encoder-version>6.6</logstash-logback-encoder-version>
+
         <rest-assured.version>4.3.3</rest-assured.version>
         <jackson-databind.version>2.13.4.2</jackson-databind.version>
         <jackson-datatype.version>2.14.1</jackson-datatype.version>
@@ -290,18 +294,6 @@
                 <groupId>org.testcontainers</groupId>
                 <artifactId>junit-jupiter</artifactId>
                 <version>${testcontainers.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.jparams</groupId>
-                <artifactId>to-string-verifier</artifactId>
-                <version>${to-string-verifier.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>nl.jqno.equalsverifier</groupId>
-                <artifactId>equalsverifier</artifactId>
-                <version>${equals-verifier.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
