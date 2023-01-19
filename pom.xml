@@ -44,8 +44,7 @@
                 <module>core/use-case</module>
                 <module>adapter/input/jaxrs-controller-v1</module>
                 <module>adapter/output/jpa-mysql-repository</module>
-                <!--TODO: The restclient don't work in Spring; In this sample, the implementation about ProtocolGeneratorClient is in the spring-app module ( br.com.helpdev.protocolgenerator )-->
-                <!--<module>adapter/output/restclient-http-services</module>-->
+                <module>adapter/output/feign-http-services</module>
                 <module>app/spring-app</module>
                 <module>acceptance-test</module>
             </modules>
@@ -147,6 +146,11 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>restclient-http-services</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>feign-http-services</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

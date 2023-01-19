@@ -57,6 +57,7 @@ RUN curl https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${FLYWAY
 # Configure the JAVA_OPTIONS, you can add -XshowSettings:vm to also display the heap size.
 ENV JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
 ENV JAVA_APP_JAR="quarkus-run.jar"
+
 COPY app/quarkus-app/target/quarkus-app/ /deployments/
 COPY resources/flyway/db/migration /flyway/sql
 

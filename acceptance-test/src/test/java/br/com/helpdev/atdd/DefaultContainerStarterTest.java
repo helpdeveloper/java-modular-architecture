@@ -22,6 +22,8 @@ abstract class DefaultContainerStarterTest {
   private static final GenericContainer<?> MYSQL_CONTAINER;
   private static final Network NETWORK = Network.newNetwork();
   protected static final WireMockServer MOCK_SERVER;
+  private static final String PROFILE_ID_SPRING = "spring";
+  public static final String PROP_PROFILE_ID = "profileId";
 
   /* Containers are initialized in static block to create only once in test execution  */
   static {
@@ -66,8 +68,10 @@ abstract class DefaultContainerStarterTest {
         .withEnv("MYSQL_PASSWORD", "test")
         .withEnv("MYSQL_URL", "jdbc:mysql://testdb:" + MySQLContainer.MYSQL_PORT + "/test?autoReconnect=true&useSSL=false")
         .withExposedPorts(8080)
-        //TODO: change to: '/actuator/health' if you use spring
-        .waitingFor(Wait.forHttp("/q/health/ready").forStatusCode(200))
+        .waitingFor(System.getProperty(PROP_PROFILE_ID).equals(PROFILE_ID_SPRING) ?
+            Wait.forHttp("/actuator/health").forStatusCode(200) :
+            Wait.forHttp("/q/health/ready").forStatusCode(200)
+        )
         .withLogConsumer(new Slf4jLogConsumer(LoggerFactory.getLogger("APP_CONTAINER")));
   }
 
