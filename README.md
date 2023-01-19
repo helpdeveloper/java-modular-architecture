@@ -89,6 +89,7 @@ Fornecendo toda infraestrutura necessária para o desenvolvedor.
 O framework é definido pelo profile, sendo que o default é do Quarkus.
 
 #### Quarkus
+
 ```bash
 mvn clean install -Pquarkus
 # or by default:
@@ -96,12 +97,6 @@ mvn clean install
 ```
 
 #### Spring boot
-
-Nota: O projeto com Spring Boot não está finalizado. No caso o profile do Spring está sem o módulo
-de output: `restclient-http-service`, pois o Spring Boot não tem uma implementação para o microprofile-restclient
-no caso, o ideal seria a criação de um modulo com o Feign para implementar a porta do use-case: `ProtocolGeneratorClient`
-Porém, atualmente para o projeto rodar, essa porta foi implementada como um fake no modulo da app `spring-app` no seguinte package: ` br.com.helpdev.protocolgenerator`.
-Mas o módulo de `acceptance-test` irá falhar, pois o mesmo faz um mock desse serviço;
 
 ```bash
 mvn clean install -Pspring
