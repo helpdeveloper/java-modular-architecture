@@ -5,10 +5,10 @@ import br.com.helpdev.domain.vo.MessageId;
 import br.com.helpdev.output.repository.entity.MessageEntityRepository;
 import br.com.helpdev.output.repository.mapper.MessageMapper;
 import br.com.helpdev.usecase.port.MessageRepository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import java.util.Optional;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
 
 @Named
 @ApplicationScoped

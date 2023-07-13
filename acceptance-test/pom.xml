@@ -16,16 +16,16 @@
         <maven.compiler.target>17</maven.compiler.target>
         <mutation.skip>true</mutation.skip>
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
-        <mysql-connector-java.version>8.0.30</mysql-connector-java.version>
+        <mysql-connector-j.version>8.0.33</mysql-connector-j.version>
         <docker-maven-plugin.version>0.38.1</docker-maven-plugin.version>
         <mutation.skip>true</mutation.skip>
-        <wiremock-jre8.version>2.35.0</wiremock-jre8.version>
+        <wiremock.version>3.0.0-beta-10</wiremock.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>jaxrs-controller-v1</artifactId>
+            <artifactId>jakarta-controller-v1</artifactId>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -73,9 +73,9 @@
             <artifactId>rest-assured-all</artifactId>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-connector-java.version}</version>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>${mysql-connector-j.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.javafaker</groupId>
@@ -84,8 +84,8 @@
         </dependency>
         <dependency>
             <groupId>com.github.tomakehurst</groupId>
-            <artifactId>wiremock-jre8</artifactId>
-            <version>${wiremock-jre8.version}</version>
+            <artifactId>wiremock</artifactId>
+            <version>${wiremock.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

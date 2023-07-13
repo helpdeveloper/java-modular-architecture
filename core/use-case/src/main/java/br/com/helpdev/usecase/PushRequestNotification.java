@@ -6,11 +6,11 @@ import br.com.helpdev.domain.Status;
 import br.com.helpdev.domain.exception.NotificationException;
 import br.com.helpdev.usecase.port.MessageRepository;
 import br.com.helpdev.usecase.port.ProtocolGeneratorClient;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import java.time.ZonedDateTime;
 import java.util.List;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
 
 @Named
 @ApplicationScoped

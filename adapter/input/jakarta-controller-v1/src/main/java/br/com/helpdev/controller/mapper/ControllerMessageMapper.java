@@ -13,11 +13,11 @@ import br.com.helpdev.domain.Recipient;
 import br.com.helpdev.domain.vo.MessageBody;
 import br.com.helpdev.domain.vo.MessageId;
 import br.com.helpdev.domain.vo.Phone;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Named;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.stream.Collectors;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;
 
 @Named
 @ApplicationScoped
