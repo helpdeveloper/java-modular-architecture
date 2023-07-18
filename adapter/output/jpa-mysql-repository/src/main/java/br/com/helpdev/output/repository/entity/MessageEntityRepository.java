@@ -1,11 +1,11 @@
 package br.com.helpdev.output.repository.entity;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 import java.util.Optional;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 
 @Named
 @ApplicationScoped

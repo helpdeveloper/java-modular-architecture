@@ -17,7 +17,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <quarkus.platform.version>2.15.0.Final</quarkus.platform.version>
+                <quarkus.platform.version>3.2.0.Final</quarkus.platform.version>
                 <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
                 <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
             </properties>
@@ -25,7 +25,7 @@
             <modules>
                 <module>core/domain</module>
                 <module>core/use-case</module>
-                <module>adapter/input/jaxrs-controller-v1</module>
+                <module>adapter/input/jakarta-controller-v1</module>
                 <module>adapter/output/jpa-mysql-repository</module>
                 <module>adapter/output/restclient-http-services</module>
                 <module>app/quarkus-app</module>
@@ -35,14 +35,14 @@
         <profile>
             <id>spring</id>
             <properties>
-                <spring-boot.version>2.7.1</spring-boot.version>
-                <spring-cloud.version>2021.0.3</spring-cloud.version>
+                <spring-boot.version>3.1.1</spring-boot.version>
+                <spring-cloud.version>2022.0.3</spring-cloud.version>
             </properties>
 
             <modules>
                 <module>core/domain</module>
                 <module>core/use-case</module>
-                <module>adapter/input/jaxrs-controller-v1</module>
+                <module>adapter/input/jakarta-controller-v1</module>
                 <module>adapter/output/jpa-mysql-repository</module>
                 <module>adapter/output/feign-http-services</module>
                 <module>app/spring-app</module>
@@ -71,45 +71,44 @@
         <pitest-maven.version>1.7.4</pitest-maven.version>
 
         <!-- Build / Plugins -->
-        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
-        <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
-        <spotbugs-maven-plugin.version>4.5.3.0</spotbugs-maven-plugin.version>
-        <spotbugs.version>4.5.3</spotbugs.version>
+        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+        <maven-checkstyle-plugin.version>3.3.0</maven-checkstyle-plugin.version>
+        <spotbugs-maven-plugin.version>4.7.3.5</spotbugs-maven-plugin.version>
+        <spotbugs.version>4.7.3</spotbugs.version>
         <checkstyle-version>8.39</checkstyle-version>
         <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
-        <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
-        <maven-failsafe-plugin.version>3.0.0-M7</maven-failsafe-plugin.version>
+        <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
+        <maven-failsafe-plugin.version>3.1.2</maven-failsafe-plugin.version>
         <pitest-junit5-plugin.version>0.15</pitest-junit5-plugin.version>
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
 
         <!-- Tests -->
-        <junit-jupiter.version>5.6.0</junit-jupiter.version>
-        <mockito.version>3.3.3</mockito.version>
-        <assertj.version>3.22.0</assertj.version>
-        <testcontainers.version>1.17.1</testcontainers.version>
+        <junit-jupiter.version>5.9.3</junit-jupiter.version>
+        <mockito.version>5.4.0</mockito.version>
+        <assertj.version>3.24.2</assertj.version>
+        <testcontainers.version>1.18.3</testcontainers.version>
         <java-faker.version>1.0.2</java-faker.version>
-        <glassfish.test.version>2.35</glassfish.test.version>
+        <glassfish.test.version>3.1.2</glassfish.test.version>
 
         <!-- Specs / apis -->
-        <jakarta.enterprise.cdi-api.version>2.0.2</jakarta.enterprise.cdi-api.version>
-        <javax.ws.rs-api.version>2.1.1</javax.ws.rs-api.version>
-        <jakarta.transaction-api.version>1.3.3</jakarta.transaction-api.version>
-        <jakarta.persistence-api.version>2.2.3</jakarta.persistence-api.version>
-        <microprofile-rest-api.version>2.0</microprofile-rest-api.version>
-        <validation-api.version>2.0.1.Final</validation-api.version>
+        <jakarta.enterprise.cdi-api.version>4.0.1</jakarta.enterprise.cdi-api.version>
+        <jakarta.ws.rs-api.version>3.1.0</jakarta.ws.rs-api.version>
+        <jakarta.transaction-api.version>2.0.1</jakarta.transaction-api.version>
+        <jakarta.persistence-api.version>3.1.0</jakarta.persistence-api.version>
+        <microprofile-rest-api.version>3.0.1</microprofile-rest-api.version>
+        <validation-api.version>3.0.2</validation-api.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
 
         <!-- Others -->
-        <jersey.version>2.35</jersey.version>
-        <lombok.version>1.18.24</lombok.version>
+        <lombok.version>1.18.28</lombok.version>
 
-        <slf4j.version>1.7.36</slf4j.version>
-        <logback-core.version>1.2.3</logback-core.version>
-        <logstash-logback-encoder-version>6.6</logstash-logback-encoder-version>
+        <slf4j.version>2.0.7</slf4j.version>
+        <logback-core.version>1.4.8</logback-core.version>
+        <logstash-logback-encoder-version>7.4</logstash-logback-encoder-version>
 
-        <rest-assured.version>4.3.3</rest-assured.version>
-        <jackson-databind.version>2.13.4.2</jackson-databind.version>
-        <jackson-datatype.version>2.14.1</jackson-datatype.version>
+        <rest-assured.version>5.2.0</rest-assured.version>
+        <jackson-databind.version>2.15.2</jackson-databind.version>
+        <jackson-datatype.version>2.15.2</jackson-datatype.version>
     </properties>
 
     <dependencies>
@@ -125,7 +124,7 @@
         <dependencies>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>jaxrs-controller-v1</artifactId>
+                <artifactId>jakarta-controller-v1</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -159,8 +158,8 @@
                 <version>${lombok.version}</version>
             </dependency>
             <dependency>
-                <groupId>javax.validation</groupId>
-                <artifactId>validation-api</artifactId>
+                <groupId>jakarta.validation</groupId>
+                <artifactId>jakarta.validation-api</artifactId>
                 <version>${validation-api.version}</version>
             </dependency>
             <dependency>
@@ -176,14 +175,9 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>javax.ws.rs</groupId>
-                <artifactId>javax.ws.rs-api</artifactId>
-                <version>${javax.ws.rs-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.xml.bind</groupId>
-                <artifactId>jaxb-api</artifactId>
-                <version>${jaxb-api.version}</version>
+                <groupId>jakarta.ws.rs</groupId>
+                <artifactId>jakarta.ws.rs-api</artifactId>
+                <version>${jakarta.ws.rs-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.microprofile.rest.client</groupId>
@@ -305,17 +299,22 @@
                 <artifactId>jersey-server</artifactId>
                 <version>${glassfish.test.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.github.tomakehurst</groupId>
-                <artifactId>wiremock-jre8</artifactId>
-                <version>${wiremock.version}</version>
-                <scope>test</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
         <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
 
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>

@@ -6,9 +6,9 @@ import br.com.helpdev.domain.exception.NotificationException;
 import br.com.helpdev.domain.vo.MessageId;
 import br.com.helpdev.usecase.exception.MessageNotFoundException;
 import br.com.helpdev.usecase.port.MessageRepository;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 @Named
 @ApplicationScoped

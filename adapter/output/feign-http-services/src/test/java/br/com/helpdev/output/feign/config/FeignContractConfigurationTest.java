@@ -1,12 +1,12 @@
 package br.com.helpdev.output.feign.config;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import feign.jaxrs.JAXRSContract;
+import feign.jaxrs.JakartaContract;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(MockitoExtension.class)
 class FeignContractConfigurationTest {
@@ -18,7 +18,7 @@ class FeignContractConfigurationTest {
     final var contract = feignContractConfiguration.contract();
 
     assertThat(contract)
-        .isInstanceOf(JAXRSContract.class)
+        .isInstanceOf(JakartaContract.class)
         .isNotNull();
   }
 }

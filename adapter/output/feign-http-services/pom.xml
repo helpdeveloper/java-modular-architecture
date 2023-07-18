@@ -17,7 +17,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <coverage.exclude.code>**/*Dto.*</coverage.exclude.code>
         <mutation.excluded.code>**.dto.*</mutation.excluded.code>
-        <feign-jaxrs.version>12.1</feign-jaxrs.version>
+        <feign-jakarta.version>12.4</feign-jakarta.version>
     </properties>
 
     <dependencyManagement>
@@ -33,8 +33,8 @@
     </dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>javax.ws.rs-api</artifactId>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -49,8 +49,8 @@
 
         <dependency>
             <groupId>io.github.openfeign</groupId>
-            <artifactId>feign-jaxrs</artifactId>
-            <version>${feign-jaxrs.version}</version>
+            <artifactId>feign-jakarta</artifactId>
+            <version>${feign-jakarta.version}</version>
         </dependency>
 
         <!-- Project dependencies-->

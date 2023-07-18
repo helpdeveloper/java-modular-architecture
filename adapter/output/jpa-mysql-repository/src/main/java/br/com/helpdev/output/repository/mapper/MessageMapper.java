@@ -14,12 +14,12 @@ import br.com.helpdev.output.repository.entity.CommunicationChannelEntity;
 import br.com.helpdev.output.repository.entity.MessageEntity;
 import br.com.helpdev.output.repository.entity.RecipientEntity;
 import br.com.helpdev.output.repository.entity.StatusEntity;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Named;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;
 
 @Named
 @ApplicationScoped

@@ -10,13 +10,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>jaxrs-controller-v1</artifactId>
+    <artifactId>jakarta-controller-v1</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <swagger-core.version>2.2.6</swagger-core.version>
-        <swagger-maven-plugin.version>2.1.5</swagger-maven-plugin.version>
+        <swagger-core.version>2.2.14</swagger-core.version>
+        <swagger-maven-plugin.version>2.2.15</swagger-maven-plugin.version>
     </properties>
 
     <dependencies>
@@ -25,19 +25,16 @@
             <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>javax.ws.rs-api</artifactId>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
         </dependency>
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
-            <artifactId>swagger-core</artifactId>
+            <artifactId>swagger-core-jakarta</artifactId>
             <version>${swagger-core.version}</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>domain</artifactId>
@@ -85,32 +82,34 @@
 
     <build>
         <plugins>
+            <!-- https://github.com/swagger-api/swagger-core/blob/master/modules/swagger-maven-plugin/README.md -->
             <plugin>
-                <groupId>io.openapitools.swagger</groupId>
-                <artifactId>swagger-maven-plugin</artifactId>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-maven-plugin-jakarta</artifactId>
                 <version>${swagger-maven-plugin.version}</version>
                 <configuration>
                     <resourcePackages>
                         <resourcePackage>br.com.helpdev.controller</resourcePackage>
                     </resourcePackages>
-                    <outputDirectory>${basedir}/target/resources/br/com/helpdev/controller</outputDirectory>
-                    <outputFilename>openapi</outputFilename>
-                    <outputFormats>JSON,YAML</outputFormats>
+                    <outputFileName>openapi</outputFileName>
+                    <outputPath>${basedir}/target/resources/br/com/helpdev/controller</outputPath>
+                    <outputFormat>JSONANDYAML</outputFormat>
+
                     <prettyPrint>true</prettyPrint>
                 </configuration>
                 <executions>
                     <execution>
-                        <id>generate-doc</id>
                         <phase>compile</phase>
                         <goals>
-                            <goal>generate</goal>
+                            <goal>resolve</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>2.6</version>
+                <version>3.3.1</version>
                 <executions>
                     <execution>
                         <id>copy-resources</id>

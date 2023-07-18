@@ -1,13 +1,10 @@
 package br.com.helpdev.controller.dto;
 
-import br.com.helpdev.domain.Recipient;
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
 @Builder

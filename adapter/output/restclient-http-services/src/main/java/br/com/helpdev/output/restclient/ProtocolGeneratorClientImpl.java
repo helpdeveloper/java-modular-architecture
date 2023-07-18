@@ -3,9 +3,9 @@ package br.com.helpdev.output.restclient;
 
 import br.com.helpdev.output.restclient.client.RandomDataApiClient;
 import br.com.helpdev.usecase.port.ProtocolGeneratorClient;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 @ApplicationScoped

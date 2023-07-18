@@ -67,7 +67,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>jaxrs-controller-v1</artifactId>
+            <artifactId>jakarta-controller-v1</artifactId>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -124,7 +124,7 @@
             <plugin>
                 <groupId>org.jboss.jandex</groupId>
                 <artifactId>jandex-maven-plugin</artifactId>
-                <version>1.2.2</version>
+                <version>1.2.3</version>
                 <executions>
                     <execution>
                         <id>make-index</id>

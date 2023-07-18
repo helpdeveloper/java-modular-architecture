@@ -3,9 +3,9 @@ package br.com.helpdev.output.feign;
 
 import br.com.helpdev.output.feign.client.RandomDataApiClient;
 import br.com.helpdev.usecase.port.ProtocolGeneratorClient;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 @ApplicationScoped
 @Named
