@@ -71,7 +71,7 @@
         <pitest-maven.version>1.7.4</pitest-maven.version>
 
         <!-- Build / Plugins -->
-        <maven-compiler-plugin.version>3.11.1</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-checkstyle-plugin.version>3.3.0</maven-checkstyle-plugin.version>
         <spotbugs-maven-plugin.version>4.7.3.5</spotbugs-maven-plugin.version>
         <spotbugs.version>4.7.3</spotbugs.version>
@@ -98,7 +98,6 @@
         <microprofile-rest-api.version>3.0.1</microprofile-rest-api.version>
         <validation-api.version>3.0.2</validation-api.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
-        <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
 
         <!-- Others -->
         <lombok.version>1.18.28</lombok.version>
@@ -179,11 +178,6 @@
                 <groupId>jakarta.ws.rs</groupId>
                 <artifactId>jakarta.ws.rs-api</artifactId>
                 <version>${jakarta.ws.rs-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>jakarta.servlet</groupId>
-                <artifactId>jakarta.servlet-api</artifactId>
-                <version>${jakarta.servlet-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.microprofile.rest.client</groupId>
@@ -310,6 +304,17 @@
 
     <build>
         <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
 
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>

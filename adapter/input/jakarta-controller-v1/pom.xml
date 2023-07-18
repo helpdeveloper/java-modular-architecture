@@ -29,10 +29,6 @@
             <artifactId>jakarta.ws.rs-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-        </dependency>
-        <dependency>
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-core-jakarta</artifactId>
             <version>${swagger-core.version}</version>
