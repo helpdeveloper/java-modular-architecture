@@ -83,6 +83,7 @@
     <build>
         <plugins>
             <!-- https://github.com/swagger-api/swagger-core/blob/master/modules/swagger-maven-plugin/README.md -->
+            <!-- Generate the openapi file in resources -->
             <plugin>
                 <groupId>io.swagger.core.v3</groupId>
                 <artifactId>swagger-maven-plugin-jakarta</artifactId>
@@ -107,9 +108,10 @@
                 </executions>
             </plugin>
             <plugin>
+                <!-- Copy the resources (specifically the openapi file) to target/class to make available in OpenApiController -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>${maven-resources-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>copy-resources</id>

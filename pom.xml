@@ -81,6 +81,7 @@
         <maven-failsafe-plugin.version>3.1.2</maven-failsafe-plugin.version>
         <pitest-junit5-plugin.version>0.15</pitest-junit5-plugin.version>
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
+        <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
 
         <!-- Tests -->
         <junit-jupiter.version>5.9.3</junit-jupiter.version>

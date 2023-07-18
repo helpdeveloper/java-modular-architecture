@@ -15,7 +15,6 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <mutation.skip>true</mutation.skip>
-        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
         <mysql-connector-j.version>8.0.33</mysql-connector-j.version>
         <docker-maven-plugin.version>0.38.1</docker-maven-plugin.version>
         <mutation.skip>true</mutation.skip>
