@@ -1,9 +1,9 @@
 package br.com.helpdev.config;
 
-import java.util.Objects;
-import java.util.stream.Collectors;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.ext.Provider;
+import java.util.Objects;
+import java.util.stream.Collectors;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.context.annotation.Configuration;
